@@ -100,7 +100,7 @@ function linkifyUrls(text: string): string {
   return fixed;
 }
 
-const STORAGE_KEY = 'santi-chat';
+const STORAGE_KEY = 'bb-chat';
 
 function loadSession(fallbackGreeting: string): { messages: Message[]; sessionId: string; showPrompts: boolean } {
   try {

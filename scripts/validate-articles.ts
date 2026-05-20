@@ -25,26 +25,10 @@ const root = resolve(__dirname, '..')
 const FIX_MODE = process.argv.includes('--fix')
 
 /** Map article id → source file (relative to root) */
-const SOURCE_MAP: Record<string, string> = {
-  'n8n-for-pms': 'src/N8nForPMs.tsx',
-  'jacobo': 'src/JacoboAgent.tsx',
-  'business-os': 'src/BusinessOS.tsx',
-  'programmatic-seo': 'src/ProgrammaticSeo.tsx',
-  'santifer-irepair': 'src/SantiferIRepair.tsx',
-  'self-healing-chatbot': 'src/SelfHealingChatbot.tsx',
-  'career-ops': 'src/CareerOps.tsx',
-}
+const SOURCE_MAP: Record<string, string> = {}
 
 /** Map article id → i18n source file (relative to root). Content edits go here. */
-const I18N_MAP: Record<string, string> = {
-  'n8n-for-pms': 'src/n8n-i18n.ts',
-  'jacobo': 'src/jacobo-i18n.ts',
-  'business-os': 'src/business-os-i18n.ts',
-  'programmatic-seo': 'src/pseo-i18n.ts',
-  'santifer-irepair': 'src/santifer-irepair-i18n.ts',
-  'self-healing-chatbot': 'src/chatbot-i18n.ts',
-  'career-ops': 'src/career-ops-i18n.ts',
-}
+const I18N_MAP: Record<string, string> = {}
 
 const REGISTRY_PATH = 'src/articles/registry.ts'
 

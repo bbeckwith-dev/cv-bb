@@ -1,11 +1,10 @@
 /* TEAM */
-Builder: Santiago Fernandez de Valderrama Aparicio
-Role: Head of Applied AI · AI Product Manager · Solutions Architect
-Contact: hi@santifer.io
-Site: https://santifer.io
-Location: Seville, Spain
-LinkedIn: https://linkedin.com/in/santifer
-GitHub: https://github.com/santifer
+Builder: Brent Beckwith
+Role: Support Engineer · AI Practitioner
+Contact: brent.beckwith@gmail.com
+Location: Madison, Ohio
+LinkedIn: https://linkedin.com/in/brent-beckwith
+GitHub: https://github.com/bbeckwith-dev
 
 /* THANKS */
 AI Pair: Claude Code (Anthropic)
@@ -21,4 +20,4 @@ Standards: llms.txt, security.txt, JSON-LD, Open Graph
 Performance: Lighthouse 100, pre-rendered SSR, critical CSS inlining
 Security: CSP, input sanitization, prompt injection defense, rate limiting
 Accessibility: Semantic HTML, ARIA labels, keyboard navigation
-SEO: Programmatic meta tags, structured data, sitemap, hreflang
+SEO: Programmatic meta tags, structured data, sitemap

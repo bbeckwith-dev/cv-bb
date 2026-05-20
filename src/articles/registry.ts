@@ -40,74 +40,7 @@ export interface ArticleConfig {
   seoMeta?: ArticleSeoMeta
 }
 
-export const articleRegistry: ArticleConfig[] = [
-  {
-    id: 'self-healing-chatbot',
-    slugs: { es: 'self-healing-chatbot', en: 'self-healing-chatbot' },
-    titles: { es: 'The Self-Healing Chatbot', en: 'The Self-Healing Chatbot' },
-    seo: {
-      es: {
-        title: 'The Self-Healing Chatbot: From Widget to Production LLMOps',
-        description: 'Case study: production LLMOps with agentic observability, 6-layer defense, 71 evals, voice mode, and a closed-loop that generates tests from real failures.',
-      },
-      en: {
-        title: 'The Self-Healing Chatbot: From Widget to Production LLMOps',
-        description: 'Case study: production LLMOps with agentic observability, 6-layer defense, 71 evals, voice mode, and a closed-loop that generates tests from real failures.',
-      },
-    },
-    sectionLabels: {
-      es: {
-        'genesis': 'The Genesis',
-        'evolution': 'The Evolution',
-        'architecture': 'Architecture',
-        'how-it-was-built': 'How It Was Built',
-        'rag': 'Agentic RAG',
-        'defense': 'Defense',
-        'agentic-observability': 'Agentic Observability',
-        'evals': 'The 71 Tests',
-        'closed-loop': 'The Closed Loop',
-        'cost': 'Real Cost',
-        'voice': 'Voice Mode',
-        'lessons': 'Lessons',
-        'faq': 'FAQ',
-      },
-      en: {
-        'genesis': 'The Genesis',
-        'evolution': 'The Evolution',
-        'architecture': 'Architecture',
-        'how-it-was-built': 'How It Was Built',
-        'rag': 'Agentic RAG',
-        'defense': 'Defense',
-        'agentic-observability': 'Agentic Observability',
-        'evals': 'The 71 Tests',
-        'closed-loop': 'The Closed Loop',
-        'cost': 'Real Cost',
-        'voice': 'Voice Mode',
-        'lessons': 'Lessons',
-        'faq': 'FAQ',
-      },
-    },
-    type: 'case-study',
-    ragReady: true,
-    i18nFile: 'src/chatbot-i18n.ts',
-    component: () => import('../SelfHealingChatbot.tsx'),
-    seoMeta: {
-      datePublished: '2026-03-11',
-      dateModified: '2026-05-10',
-      keywords: ['LLMOps', 'self-healing chatbot', 'agentic RAG', 'jailbreak defense', 'prompt injection', 'LLM evaluation', 'closed loop LLM', 'Langfuse', 'prompt versioning', 'adversarial testing', 'voice mode chatbot'],
-      articleType: 'TechArticle',
-      articleTags: 'LLMOps,self-healing chatbot,agentic RAG,jailbreak defense,Langfuse,evals,closed-loop',
-      images: [],
-      about: [
-        { '@type': 'SoftwareApplication', name: 'Langfuse', url: 'https://langfuse.com', applicationCategory: 'LLM Observability' },
-        { '@type': 'SoftwareApplication', name: 'Supabase', url: 'https://supabase.com', applicationCategory: 'Database' },
-        { '@type': 'Thing', name: 'LLMOps' },
-        { '@type': 'Thing', name: 'Retrieval-Augmented Generation' },
-      ],
-      extra: { proficiencyLevel: 'Expert', dependencies: 'Claude, Langfuse, Supabase, Vercel, OpenAI' },
-    },
-  },
-]
+export const articleRegistry: ArticleConfig[] = []
 
 export function getAltPaths(): Record<string, string> {
   const map: Record<string, string> = {
