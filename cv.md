@@ -45,35 +45,80 @@ Oct 2023 -- Oct 2024
 **Engineer I / Security Analyst I (CSOC)**
 Dec 2019 -- Oct 2023
 
-* Maintained CSOC warehousing LAMP website, wiki, and servers -- consulted management on new features and implemented them
-* Maintained Domain Services LAMP research website and full-stack VM environment
+*Title changed to Security Analyst I in late 2019 upon transition from Domain Services into the CSOC (Cyber Security Operations Center).*
+
+* Complete ownership of CSOC warehousing LAMP website, wiki, and servers
+* Complete ownership of Domain Services LAMP warehousing/research website and full-stack VM environment
+* Consulted CSOC management on new site features, then built and deployed them
 * Automated daily backups of CSOC websites and databases to AWS servers
-* Crafted MySQL queries to pull actionable data per management request
+* Crafted MySQL queries to pull structured, actionable data per management request
 * Built Python script to cross-reference on-demand malicious IP lists against 13 million Windstream IPs
 * Developed Python scripts to bulk query hundreds of Fortinet devices for security analysis
 * Coordinated engineer and specialist migration efforts across acquired company platforms
-* Performance rating: "Highly Successful" (4/5) -- every annual review throughout entire Windstream tenure
+* Handled and maintained the CSOC lab and internal applications (SecOps)
+* Performance rating: "Highly Successful" (4/5) or "Superior" (5/5) on every annual review throughout entire Windstream tenure -- no exceptions
 
-> **Tech stack:** ESXi, Linux, SQL, Apache, PHP, HTML, CSS, JavaScript, Git, Python, Bash, AWS
+> **Tech stack:** ESXi, Linux, SQL, Apache, PHP, HTML, CSS, JavaScript, Git, Python, Bash, Docker, AWS, Fortinet, Azure
 
 **Specialist II**
 May 2011 -- Dec 2019
 
-* Served as Linux, web/DNS/email hosting, and email filtering go-to resource for team of 8
+*Promoted from Norlight Customer Support Engineer after Windstream acquisition. Also held title "Sr Internet Tech Suprt Spec" initially.*
+
+* Linux, web/DNS/email hosting, and email filtering SME for team of 8
 * Led hosting migration efforts for five major ISP acquisitions (Norlight, Nuvox, Paetec, Earthlink, Broadview) -- 5,000+ domains from 60+ servers covering 20+ products
-* Coordinated the Domain Services team through four major acquisition migration efforts
+* Led and coordinated the Domain Services team through four major acquisition migration efforts
+* Investigated, harvested, and organized customer data from numerous servers and platforms during acquisitions
+* Composed, organized, and managed migration customer communication campaigns across multiple waves
 * Automated large-scale DNS, email, and website queries for investigative audits
-* Led four product soft rollouts with customer onboards, serving as product escalation point
+* Led four product soft rollouts with customer onboards, serving as product SME and escalation point
 * Saved company over $15,000 monthly through a domain lookup and disable project
 * Created scripts for DNS, email, and web service management -- reducing manual processes by 70%
 * Managed MySQL databases supporting thousands of customer domains
-* Composed, organized, and managed migration customer communication campaigns
 * Escalation point for eight Specialist I team members
+* Addressed all server maintenance and escalations after acquiring Paetec website/email/DNS Plesk server
+* Functioned as systems administrator to maintain servers during transitions
+* Effectively relayed cause, response, and workarounds to team during global outages
 
-> **Tech stack:** Linux, Qmail, vpopmail, BIND, SQL, Apache, Bash, Plesk, Hostopia, Remedy, Metasolv
-> **Platforms:** Hostopia, Plesk, Intermedia Hosted Exchange, Google Apps, Symantec, McAfee, Postini, Proofpoint, Mimecast, Webroot, Trustwave
+> **Tech stack:** Linux, Qmail, vpopmail, BIND, djbdns, tinydns, SQL, Apache, Bash, SSH, SSL, Plesk
+> **Hosting platforms:** Hostopia, Plesk, Nuvox in-house, Norlight in-house, Intermedia Hosted Exchange, Google Apps
+> **Mail filtering:** Symantec, McAfee, Postini, Proofpoint, Mimecast
+> **Web filtering:** Webroot, McAfee, Trustwave
+> **Ticketing/provisioning:** Remedy, Footprints, Metasolv (M5, M6)
 
-**Earlier Experience:** Customer Support Engineer, Norlight Telecommunications (now Windstream) — Madison, WI. Awarded Q-Excellence — singular recognition out of 600+ employees. Owned LAMP/email/DNS hosting stack for 800+ business customers with 95%+ satisfaction. Trusted with root access to entire company technology stack.
+### Norlight Telecommunications (now Windstream) -- Madison, WI
+
+**Customer Support Engineer**
+Jun 2004 -- May 2011
+
+* Awarded Q-Excellence -- singular recognition out of 600+ employees
+* Complete provisional and support ownership of LAMP website, email, DNS hosting, cloud-based email filtering (Cleanmail), and fax-to-email system for 800+ business customers
+* Maintained 95%+ customer satisfaction ratings
+* Completed hosting and mail-filtering platform migrations for 500+ customers and authored support documentation
+* First-response application support for 30+ company-designed customer websites and tools
+* Rotated system upgrade, on-call, and maintenance duties across 30+ servers and NFS storage
+* Monitored and configured customer firewalls, network monitors (Solarwinds), and Fortinet deployments
+* Managed email security via Trustwave
+* Provisioned web, email, and DNS hosting services on Linux (CentOS) via SSH, utilizing Apache, SSL, SQL, Perl, HTML, and PHP
+* Organized migrations to move qualifying internally hosted domains to third-party hosting vendor (Hostopia)
+* First-response actions mitigating DDoS and spam surges in real time
+* Participated in configuration, maintenance, and operations of NetApp storage device -- replaced failed drives, interfaced with vendor support
+* Assisted in managing multi-tiered backup environment (server data → NetApp → tape backup rotations)
+* Trusted with root access to entire company technology stack
+
+> **Tech stack:** Linux (CentOS), Windows Server, SSH, SSL, Apache, Exim, BIND, CGI, Perl, HTML, SQL, PHP, NagiOS/Sentry, NFS (NetApp), Fortinet, Solarwinds, Trustwave
+> **In-house products:** Cleanmail (MX-level spam filter with ClamAV/AVG/Kaspersky AV), fax-to-email system
+> **Ticketing/provisioning:** Footprints, Metasolv
+
+### Cinergy Communications
+
+**Helpdesk Technician**
+Apr 2001 -- 2004
+
+* ISP helpdesk supporting business and residential customers across Windows and Mac
+* Assisted customers with internet connectivity (dial-up) and internet-related applications
+* Performed in-house/in-person PC troubleshooting and repair
+* Recorded cases using in-house ticketing system
 
 ## Projects
 
@@ -93,13 +138,15 @@ Browser-based covered call options simulator for learning option mechanics. Impl
 * Modern Web Development -- The Odin Project (Full Stack JavaScript)
 * Microsoft Azure Fundamentals
 * AWS Cloud Practitioner Training
+* Six Sigma
 
 ## Skills
 
-* **Systems:** Windows 11, Windows Server, Linux (CentOS), Microsoft 365/Intune, Active Directory, ESXi
-* **Development:** Python, Bash/Shell, PowerShell, PHP, JavaScript, HTML/CSS, SQL/MySQL, Perl
-* **Infrastructure:** Apache, BIND (DNS), Exim, AWS, Azure, NetApp/NFS
-* **Security:** Fortinet, Solarwinds, NagiOS/Sentry, Trustwave, Proofpoint, Mimecast
-* **Tools:** Git/GitHub, ServiceNow, Remedy, Footprints, Metasolv, Citrix, Plesk
+* **Systems:** Windows 11, Windows Server, Linux (CentOS), Solaris, Unix, Microsoft 365/Intune, Active Directory, ESXi
+* **Development:** Python, Bash/Shell, PowerShell, PHP, JavaScript, HTML/CSS, SQL/MySQL, Perl, CGI, Django, WordPress
+* **Infrastructure:** Apache, BIND (DNS), djbdns/tinydns, Exim, Qmail, AWS, Azure, Docker, NetApp/NFS, SSH, SSL
+* **Security:** Fortinet, Solarwinds, NagiOS/Sentry, Trustwave, Proofpoint, Mimecast, Cleanmail (ClamAV/AVG/Kaspersky)
+* **Platforms:** Hostopia, Plesk, Intermedia Hosted Exchange, Google Apps
+* **Tools:** Git/GitHub, ServiceNow, Remedy, Footprints, Metasolv, Citrix, Visual Basic
 * **Process:** ITIL, Six Sigma, hardware lifecycle management, asset management, migration planning
 
