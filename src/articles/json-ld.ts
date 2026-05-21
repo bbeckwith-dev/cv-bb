@@ -1,22 +1,13 @@
 import { articleRegistry } from './registry'
 
-type Lang = 'es' | 'en'
-
-/**
- * Shared FAQPage builder. Used by buildArticleJsonLd (case studies) and
- * by prerender.tsx for /about + /sobre-mi. Centralizing here means any
- * page with a `faq` array gets schema-compliant FAQPage SSR'd into the
- * prerendered HTML — invisible-FAQ-on-pageload bugs cannot recur.
- */
 export function buildFaqPage(
   faq: readonly { q: string; a: string }[],
   pageUrl: string,
-  lang: Lang,
 ) {
   return {
     '@type': 'FAQPage',
     '@id': `${pageUrl.replace(/\/$/, '')}/#faq`,
-    inLanguage: lang,
+    inLanguage: 'en',
     mainEntity: faq.map((item) => ({
       '@type': 'Question',
       name: item.q,
@@ -26,9 +17,7 @@ export function buildFaqPage(
 }
 
 interface JsonLdOptions {
-  lang: Lang
   url: string
-  altUrl: string
   headline: string
   alternativeHeadline: string
   description: string
@@ -84,8 +73,6 @@ const WEBSITE = {
 }
 
 export function buildArticleJsonLd(opts: JsonLdOptions) {
-  const inLanguage = opts.lang === 'es' ? 'es' : 'en'
-
   const graph: Record<string, unknown>[] = [
     {
       '@type': opts.articleType || 'Article',
@@ -94,7 +81,6 @@ export function buildArticleJsonLd(opts: JsonLdOptions) {
       alternativeHeadline: opts.alternativeHeadline,
       description: opts.description,
       author: { '@id': 'https://brentbeckwith.com/#person' },
-      // Person-as-publisher for personal sites. Override only for collabs.
       publisher: opts.publisher
         ? { '@type': 'Organization', name: opts.publisher.name, url: opts.publisher.url }
         : { '@id': 'https://brentbeckwith.com/#person' },
@@ -104,7 +90,7 @@ export function buildArticleJsonLd(opts: JsonLdOptions) {
       url: opts.url,
       mainEntityOfPage: opts.url,
       image: opts.images,
-      inLanguage,
+      inLanguage: 'en',
       isPartOf: { '@id': 'https://brentbeckwith.com/#website' },
       ...(opts.about ? { about: opts.about } : {}),
       ...(opts.extra || {}),
@@ -115,7 +101,6 @@ export function buildArticleJsonLd(opts: JsonLdOptions) {
       ...(opts.relatedLink ? { relatedLink: opts.relatedLink } : {}),
       ...(opts.video ? { video: opts.video } : {}),
       ...(opts.subjectOf ? { subjectOf: opts.subjectOf } : {}),
-      workTranslation: { '@id': `${opts.altUrl}/#article` },
     },
     PERSON,
     WEBSITE,
@@ -130,7 +115,7 @@ export function buildArticleJsonLd(opts: JsonLdOptions) {
   ]
 
   if (opts.faq && opts.faq.length > 0) {
-    graph.push(buildFaqPage(opts.faq, opts.url, opts.lang))
+    graph.push(buildFaqPage(opts.faq, opts.url))
   }
 
   // HowTo schema removed — deprecated by Google Sept 2023
@@ -148,12 +133,10 @@ export function buildArticleJsonLd(opts: JsonLdOptions) {
  */
 export function buildJsonLdFromRegistry(
   articleId: string,
-  lang: Lang,
   i18n: {
     header: { h1: string }
     seo: { title: string; description: string }
     slug: string
-    altSlug: string
     nav: { breadcrumbHome: string; breadcrumbCurrent: string }
     faq: { items: readonly { q: string; a: string }[] }
   },
@@ -164,9 +147,7 @@ export function buildJsonLdFromRegistry(
 
   const meta = config.seoMeta
   return buildArticleJsonLd({
-    lang,
     url: `https://brentbeckwith.com/${i18n.slug}`,
-    altUrl: `https://brentbeckwith.com/${i18n.altSlug}`,
     headline: i18n.header.h1,
     alternativeHeadline: i18n.seo.title,
     description: i18n.seo.description,

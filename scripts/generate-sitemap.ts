@@ -79,7 +79,7 @@ urls.push({
 
 // Articles from registry
 for (const article of articleRegistry) {
-  const slug = article.slugs.en
+  const slug = article.slug
   const articleLastmod = article.seoMeta?.dateModified ?? today
 
   urls.push({

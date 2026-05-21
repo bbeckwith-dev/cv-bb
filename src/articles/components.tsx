@@ -45,10 +45,10 @@ export { H2 as AnchorHeading } from './content-types'
 // Layout shells
 // ---------------------------------------------------------------------------
 
-export function ArticleLayout({ lang, children }: { lang?: 'es' | 'en'; children: React.ReactNode }) {
+export function ArticleLayout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    if (lang) document.documentElement.lang = lang
-  }, [lang])
+    document.documentElement.lang = 'en'
+  }, [])
 
   return (
     <EditorModeProvider>
@@ -71,21 +71,18 @@ interface ArticleHeaderProps {
   h1: string
   subtitle: string
   date: string
-  /** ISO 8601 date for <time> element (e.g. '2026-03-11') */
   dateISO?: string
-  /** ISO 8601 last-updated date. If set AND different from dateISO, renders a visible "Updated: …" line. */
   dateModifiedISO?: string
   readingTime: string
   authorName?: string
   authorUrl?: string
   authorBio?: string
   avatarSrc?: string
-  lang?: 'es' | 'en'
   editorId?: string
 }
 
 const MONTHS_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
-function formatDateHuman(iso: string, _lang: 'es' | 'en'): string {
+function formatDateHuman(iso: string): string {
   const [y, m, d] = iso.split('-').map(Number)
   if (!y || !m || !d) return iso
   const month = MONTHS_EN[m - 1]
@@ -105,7 +102,6 @@ export function ArticleHeader({
   authorUrl,
   authorBio,
   avatarSrc = '/foto-avatar-sm.webp',
-  lang,
 }: ArticleHeaderProps) {
   const resolvedAuthorUrl = authorUrl ?? '/about'
   return (
@@ -151,7 +147,7 @@ export function ArticleHeader({
             <span className="inline-flex items-center gap-1"><Clock className="w-3.5 h-3.5" />{readingTime}</span>
             {dateModifiedISO && dateModifiedISO !== dateISO && (
               <span className="text-xs text-muted-foreground/80">
-                · Updated <time dateTime={dateModifiedISO}>{formatDateHuman(dateModifiedISO, lang ?? 'en')}</time>
+                · Updated <time dateTime={dateModifiedISO}>{formatDateHuman(dateModifiedISO)}</time>
               </span>
             )}
           </div>
@@ -166,22 +162,19 @@ export function ArticleHeader({
 // ---------------------------------------------------------------------------
 
 interface ArticleFooterProps {
-  lang: 'es' | 'en'
   utmCampaign: string
   editorId?: string
 }
 
 const FOOTER_I18N = {
-  en: {
-    role: 'SOC Analyst & AI-Augmented Problem Solver',
-    bio: '20+ years enterprise IT. Building with AI daily.',
-    fellowAt: '',
-    copyright: 'All rights reserved.',
-  },
+  role: 'SOC Analyst & AI-Augmented Problem Solver',
+  bio: '20+ years enterprise IT. Building with AI daily.',
+  fellowAt: '',
+  copyright: 'All rights reserved.',
 } as const
 
-export function ArticleFooter({ lang: _lang, utmCampaign: _utmCampaign }: ArticleFooterProps) {
-  const f = FOOTER_I18N.en
+export function ArticleFooter({ utmCampaign: _utmCampaign }: ArticleFooterProps) {
+  const f = FOOTER_I18N
   const fellowUrl = ''
   return (
     <footer className="mt-16 pt-8 border-t border-border">
@@ -587,10 +580,9 @@ interface GitHubRepoBadgeProps {
   repo: string
   stars: string
   forks: string
-  lang: 'es' | 'en'
 }
 
-export function GitHubRepoBadge({ repo, stars, forks, lang: _lang }: GitHubRepoBadgeProps) {
+export function GitHubRepoBadge({ repo, stars, forks }: GitHubRepoBadgeProps) {
   return (
     <a
       href={`https://github.com/${repo}`}

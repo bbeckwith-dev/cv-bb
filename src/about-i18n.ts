@@ -1,9 +1,6 @@
-export type AboutLang = 'en'
-
 export const aboutContent = {
   en: {
     slug: 'about',
-    altSlug: 'about',
     seo: {
       title: 'Brent Beckwith | IT Professional & Web Developer',
       description: 'IT support professional learning full-stack development and AI production workflows. Background in Linux administration, LAMP stack maintenance, and security operations. Building toward development, application support, and technical writing roles.',

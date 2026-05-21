@@ -48,7 +48,7 @@ interface Chunk {
 // ---------------------------------------------------------------------------
 
 const EXCLUDE_KEYS = new Set([
-  'slug', 'altSlug', 'readingTime', 'date', 'badge', 'seo', 'nav',
+  'slug', 'readingTime', 'date', 'badge', 'seo', 'nav',
   'breadcrumbHome', 'breadcrumbCurrent', 'back',
   'href', 'icon', 'src', 'imgAlt', 'imgTitle', 'image', 'ogImage',
   'kickerLink', 'figcaption', 'importUrl', 'downloadUrl', 'jsonUrl',
@@ -145,18 +145,17 @@ function parseI18n(source: I18nSource): Chunk[] {
 
   const baseMetadata: Omit<ChunkMetadata, 'section_id' | 'section_anchor'> = {
     article_id: source.articleId,
-    article_slug_en: `/${article.slugs.en}`,
-    article_slug_es: `/${article.slugs.es}`,
-    page_path_en: `/${article.slugs.en}`,
-    page_path_es: `/${article.slugs.es}`,
+    article_slug_en: `/${article.slug}`,
+    article_slug_es: `/${article.slug}`,
+    page_path_en: `/${article.slug}`,
+    page_path_es: `/${article.slug}`,
     source_file: source.sourceFile,
     format: 'i18n',
   }
 
   const chunks: Chunk[] = []
 
-  // Build anchor lookup from registry sectionLabels (source of truth for HTML IDs)
-  const registryAnchors = new Set(Object.keys(article.sectionLabels.en))
+  const registryAnchors = new Set(Object.keys(article.sectionLabels))
 
   // Helper: resolve the correct HTML anchor for a given i18n key
   const resolveAnchor = (key: string): string => {
@@ -377,7 +376,7 @@ async function main() {
     if (chunks.length === 0) continue
 
     // Validate: every non-empty section_anchor must exist in registry sectionLabels
-    const validAnchors = new Set(Object.keys(article.sectionLabels.en))
+    const validAnchors = new Set(Object.keys(article.sectionLabels))
     for (const chunk of chunks) {
       const anchor = chunk.metadata.section_anchor
       if (anchor) {

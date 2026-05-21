@@ -31,9 +31,7 @@ function upsertLink(rel: string, href: string) {
 // ---------------------------------------------------------------------------
 
 export interface ArticleSeoOpts {
-  lang: string
   slug: string
-  altSlug: string
   title: string
   description: string
   image?: string
@@ -41,23 +39,19 @@ export interface ArticleSeoOpts {
   modifiedTime?: string
   articleTags: string
   jsonLd: object
-  /** ES slug used as x-default hreflang (defaults to slug when lang=es) */
-  xDefaultSlug?: string
 }
 
 export function useArticleSeo(opts: ArticleSeoOpts) {
   useEffect(() => {
     const {
-      lang, slug, altSlug, title, description, image,
-      publishedTime, modifiedTime, articleTags, jsonLd, xDefaultSlug,
+      slug, title, description, image,
+      publishedTime, modifiedTime, articleTags, jsonLd,
     } = opts
 
     const url = `https://brentbeckwith.com/${slug}`
-    const altUrl = `https://brentbeckwith.com/${altSlug}`
-    const altLang = lang === 'es' ? 'en' : 'es'
-    const defaultSlug = xDefaultSlug ?? (lang === 'es' ? slug : altSlug)
 
     document.title = title
+    document.documentElement.lang = 'en'
 
     // Standard meta
     upsertMeta('name', 'description', description)
@@ -86,21 +80,6 @@ export function useArticleSeo(opts: ArticleSeoOpts) {
     // Canonical
     upsertLink('canonical', url)
 
-    // Hreflang
-    const createdLinks: HTMLLinkElement[] = []
-    for (const { hreflang, href } of [
-      { hreflang: lang, href: url },
-      { hreflang: altLang, href: altUrl },
-      { hreflang: 'x-default', href: `https://brentbeckwith.com/${defaultSlug}` },
-    ]) {
-      const link = document.createElement('link')
-      link.rel = 'alternate'
-      link.hreflang = hreflang
-      link.href = href
-      document.head.appendChild(link)
-      createdLinks.push(link)
-    }
-
     // JSON-LD — remove any pre-existing (from prerender) before adding
     const existing = document.querySelector('script[type="application/ld+json"]')
     if (existing) existing.remove()
@@ -112,16 +91,15 @@ export function useArticleSeo(opts: ArticleSeoOpts) {
 
     return () => {
       script.remove()
-      createdLinks.forEach(l => l.remove())
     }
-  }, [opts.lang, opts.slug, opts.title])
+  }, [opts.slug, opts.title])
 }
 
 // ---------------------------------------------------------------------------
 // useHomeSeo — lightweight, only updates existing tags from index.html
 // ---------------------------------------------------------------------------
 
-export function useHomeSeo({ lang, title, description }: { lang: string; title: string; description: string }) {
+export function useHomeSeo({ title, description }: { title: string; description: string }) {
   useEffect(() => {
     document.title = title
 
@@ -136,6 +114,6 @@ export function useHomeSeo({ lang, title, description }: { lang: string; title: 
     document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonical)
     document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonical)
 
-    document.documentElement.lang = lang
-  }, [lang, title, description])
+    document.documentElement.lang = 'en'
+  }, [title, description])
 }

@@ -55,7 +55,7 @@ interface PrivacySection {
   email?: string
 }
 
-export default function PrivacyPolicy({ lang = 'en' }: { lang?: 'es' | 'en' }) {
+export default function PrivacyPolicy() {
   const t = content
 
   useEffect(() => {
@@ -78,7 +78,7 @@ export default function PrivacyPolicy({ lang = 'en' }: { lang?: 'es' | 'en' }) {
   }, [t.title])
 
   return (
-    <ArticleLayout lang={lang}>
+    <ArticleLayout>
       <header className="mb-10">
         <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-2">
           {t.title}

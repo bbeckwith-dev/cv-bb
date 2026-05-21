@@ -423,8 +423,6 @@ export const translations = {
     skills: {
       title: "Skills",
       languages: "Languages",
-      spanish: "",
-      native: "",
       english: "English",
       professional: "Native",
       technical: "Technical Skills",
@@ -445,11 +443,6 @@ export const translations = {
       contact: "Contact",
     },
     ui: {
-      languageBanner: "",
-      languageBannerSwitch: "",
-      languageBannerSwitchPrefix: "",
-      languageBannerSwitchLang: "",
-      languageToggle: "",
       typingIndicator: "Brent is typing...",
     },
     chat: {

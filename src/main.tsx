@@ -12,8 +12,7 @@ const MusicToggle = lazy(() => import('./MusicToggle'))
 const PrivacyPolicy = lazy(() => import('./PrivacyPolicy'))
 const AboutPage = lazy(() => import('./AboutPage'))
 
-// Lazy-load article components from registry
-const articleComponents: Record<string, React.LazyExoticComponent<ComponentType<{ lang: 'es' | 'en' }>>> = {}
+const articleComponents: Record<string, React.LazyExoticComponent<ComponentType>> = {}
 for (const article of articleRegistry) {
   articleComponents[article.id] = lazy(article.component)
 }
@@ -76,7 +75,7 @@ function GlobalChat() {
   return (
     <ChatErrorBoundary>
       <Suspense fallback={null}>
-        <FloatingChat lang={'en'} />
+        <FloatingChat />
       </Suspense>
     </ChatErrorBoundary>
   )
@@ -101,7 +100,7 @@ function ConditionalNav() {
 }
 
 // Console easter egg
-const ASCII_ART = `\n ███████╗ █████╗ ███╗   ██╗████████╗██╗███████╗███████╗██████╗ \n ██╔════╝██╔══██╗████╗  ██║╚══██╔══╝██║██╔════╝██╔════╝██╔══██╗\n ███████╗███████║██╔██╗ ██║   ██║   ██║█████╗  █████╗  ██████╔╝\n ╚════██║██╔══██║██║╚██╗██║   ██║   ██║██╔══╝  ██╔══╝  ██╔══██╗\n ███████║██║  ██║██║ ╚████║   ██║   ██║██║     ███████╗██║  ██║\n ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝╚═╝     ╚══════╝╚═╝  ╚═╝\n`
+const ASCII_ART = `\n ██████╗ ██████╗ ███████╗███╗   ██╗████████╗\n ██╔══██╗██╔══██╗██╔════╝████╗  ██║╚══██╔══╝\n ██████╔╝██████╔╝█████╗  ██╔██╗ ██║   ██║   \n ██╔══██╗██╔══██╗██╔══╝  ██║╚██╗██║   ██║   \n ██████╔╝██║  ██║███████╗██║ ╚████║   ██║   \n ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   \n`
 console.log(`%c${ASCII_ART}`, 'color: #f97316; font-size: 12px; font-family: monospace;')
 console.log('%c Most people scroll. You inspect. I like that. ', 'background: #f97316; color: #1a1a1a; font-size: 14px; font-weight: bold; padding: 4px 8px; border-radius: 3px;')
 console.log('%cThe %cbest %cwork %cis %cinvisible.', 'color: #94a3b8; font-size: 13px;', 'color: #7e8d9d; font-size: 13px;', 'color: #687882; font-size: 13px;', 'color: #526268; font-size: 13px;', 'color: #3d4d52; font-size: 13px;')
@@ -161,12 +160,12 @@ const app = (
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="/en" element={<App />} />
-            <Route path="/about" element={<AboutPage lang="en" />} />
-            <Route path="/privacy" element={<PrivacyPolicy lang="en" />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
             {articleRegistry.map((article) => {
               const ArticleComponent = articleComponents[article.id]
               return (
-                <Route key={article.id} path={`/${article.slugs.en}`} element={<ArticleComponent lang="en" />} />
+                <Route key={article.id} path={`/${article.slug}`} element={<ArticleComponent />} />
               )
             })}
             <Route path="*" element={<NotFound />} />

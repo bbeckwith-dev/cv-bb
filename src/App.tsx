@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useMemo, useReducer, useRef } from 'r
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'motion/react'
 import { Mail, ExternalLink, Briefcase, GraduationCap, Code, Globe, Bot, Zap, BadgeCheck, FolderGit2, Sparkles, Download, Github, FileText, SkipForward, ThumbsUp, MessageCircle, Share2, List, ArrowUp } from 'lucide-react'
-import { translations, seo, type Lang } from './i18n'
+import { translations, seo } from './i18n'
 import { useHomeSeo } from './articles/use-article-seo'
 import { getTechIcon } from './tech-icons'
 
@@ -273,14 +273,14 @@ function useTypewriterRotation(roles: readonly string[], { typeSpeed = 80, delet
 }
 
 const HOME_TOC_SECTIONS = [
-  { id: 'experience', en: 'Experience' },
-  { id: 'projects', en: 'Projects' },
-  { id: 'education', en: 'Education' },
-  { id: 'tech', en: 'Skills & Stack' },
-  { id: 'contact', en: 'Contact' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'education', label: 'Education' },
+  { id: 'tech', label: 'Skills & Stack' },
+  { id: 'contact', label: 'Contact' },
 ] as const
 
-function HomeToc({ lang }: { lang: Lang }) {
+function HomeToc() {
   const [hasRevealed, setHasRevealed] = useState(false)
   const [visible, setVisible] = useState(false)
   const [activeId, setActiveId] = useState('')
@@ -375,7 +375,7 @@ function HomeToc({ lang }: { lang: Lang }) {
                   : 'text-muted-foreground/60 hover:text-foreground/80'
                 }`}
               >
-                {section[lang]}
+                {section.label}
               </button>
             </li>
           )
@@ -1165,7 +1165,7 @@ function ReflectiveTypewriter({
 }
 
 // Sección de historia con typewriter y animaciones
-function StorySection({ t }: { t: (typeof translations)[Lang] }) {
+function StorySection({ t }: { t: (typeof translations)['en'] }) {
   const [typewriterComplete, setTypewriterComplete] = useState(false)
   const [textDimmed, setTextDimmed] = useState(false)
   const [finalReveal, setFinalReveal] = useState(false)  // Tipo C se enciende con gradiente
@@ -1429,16 +1429,13 @@ export function CertLogo({ logo }: { logo: string }) {
 }
 
 function App() {
-  const lang: Lang = 'en'
-  const t = translations[lang]
+  const t = translations.en
   const hydrated = useHydrated()
   useHeroStyles()
   const { displayText: roleText, roleIndex } = useTypewriterRotation(t.greetingRoles)
 
-
-  // SEO: Dynamic meta tags based on language
-  const seoData = seo[lang]
-  useHomeSeo({ lang, title: seoData.title, description: seoData.description })
+  const seoData = seo.en
+  useHomeSeo({ title: seoData.title, description: seoData.description })
 
   return (
     <main className="min-h-screen bg-background bg-[length:24px_24px] [background-image:radial-gradient(circle,hsl(var(--dot-grid))_1px,transparent_1px)]">
@@ -1450,7 +1447,7 @@ function App() {
         Skip to content
       </a>
 
-      <HomeToc lang={lang} />
+      <HomeToc />
 
       {/* Hero Section */}
       <header id="main-content" className="relative overflow-hidden">

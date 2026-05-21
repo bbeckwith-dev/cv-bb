@@ -330,7 +330,7 @@ async function main() {
     console.log(`     → ${splitChunks.length} chunks after splitting`)
 
     // Contextual retrieval summaries
-    const articleTitle = article?.titles.en || articleId
+    const articleTitle = article?.title || articleId
     const enrichedTexts = await addContextualSummaries(splitChunks, articleTitle, anthropic)
 
     // Embed

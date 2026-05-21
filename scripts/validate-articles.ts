@@ -199,14 +199,9 @@ function validateArticle(config: typeof articleRegistry[0]): { issues: Issue[]; 
     issues.push({ severity: 'error', msg: `publishedTime mismatch: useArticleSeo="${seoPublished}" vs buildArticleJsonLd="${jsonPublished}"` })
   }
 
-  // 2. xDefaultSlug vs registry ES slug
-  if (seoXDefault && seoXDefault !== config.slugs.es) {
-    issues.push({ severity: 'error', msg: `xDefaultSlug mismatch: useArticleSeo="${seoXDefault}" vs registry.slugs.es="${config.slugs.es}"` })
-  }
-
-  // 3. Hreflang paired: both ES and EN slugs defined
-  if (!config.slugs.es || !config.slugs.en) {
-    issues.push({ severity: 'error', msg: `Missing hreflang slug pair: es="${config.slugs.es}", en="${config.slugs.en}"` })
+  // 2. Slug defined
+  if (!config.slug) {
+    issues.push({ severity: 'error', msg: `Missing slug in registry for ${config.id}` })
   }
 
   // ===== WARNINGS =====

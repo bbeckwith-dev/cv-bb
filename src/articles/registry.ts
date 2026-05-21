@@ -26,34 +26,20 @@ export interface ArticleSeoMeta {
 
 export interface ArticleConfig {
   id: string
-  slugs: { es: string; en: string }
-  titles: { es: string; en: string }
-  seo: { es: ArticleSeo; en: ArticleSeo }
-  sectionLabels: { es: Record<string, string>; en: Record<string, string> }
+  slug: string
+  title: string
+  seo: ArticleSeo
+  sectionLabels: Record<string, string>
   type: 'collab' | 'case-study' | 'bridge'
   ogImage?: string
   heroImage?: string
-  component: () => Promise<{ default: ComponentType<{ lang: 'es' | 'en' }> }>
-  xDefaultSlug?: string
+  component: () => Promise<{ default: ComponentType }>
   ragReady?: boolean
   i18nFile?: string
   seoMeta?: ArticleSeoMeta
 }
 
 export const articleRegistry: ArticleConfig[] = []
-
-export function getAltPaths(): Record<string, string> {
-  const map: Record<string, string> = {
-    '/': '/en',
-    '/en': '/',
-    '/about': '/about',
-    '/privacy': '/privacy',
-  }
-  for (const article of articleRegistry) {
-    map[`/${article.slugs.en}`] = `/${article.slugs.en}`
-  }
-  return map
-}
 
 export function getPageTitles(): Record<string, string> {
   const map: Record<string, string> = {
@@ -63,7 +49,7 @@ export function getPageTitles(): Record<string, string> {
     '/privacy': 'Privacy',
   }
   for (const article of articleRegistry) {
-    map[`/${article.slugs.en}`] = article.titles.en
+    map[`/${article.slug}`] = article.title
   }
   return map
 }
@@ -71,11 +57,7 @@ export function getPageTitles(): Record<string, string> {
 export function getSectionLabels(): Record<string, Record<string, string>> {
   const map: Record<string, Record<string, string>> = {}
   for (const article of articleRegistry) {
-    map[`/${article.slugs.en}`] = article.sectionLabels.en
+    map[`/${article.slug}`] = article.sectionLabels
   }
   return map
-}
-
-export function getEsSlugs(): Set<string> {
-  return new Set<string>()
 }

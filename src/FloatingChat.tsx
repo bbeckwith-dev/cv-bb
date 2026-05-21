@@ -38,9 +38,7 @@ interface Message {
   ragDegraded?: boolean;
 }
 
-interface FloatingChatProps {
-  lang: 'es' | 'en';
-}
+interface FloatingChatProps {}
 
 const PromptIcon = ({ icon }: { icon: string }) => {
   const icons = {
@@ -125,7 +123,7 @@ function saveSession(messages: Message[], sessionId: string) {
   } catch { /* storage full or unavailable */ }
 }
 
-export default function FloatingChat({ lang }: FloatingChatProps) {
+export default function FloatingChat(_props: FloatingChatProps) {
   const t = translations.en.chat;
   const v = t.voice;
   const [isOpen, setIsOpen] = useState(() => window.location.hash === '#chat');
@@ -259,14 +257,13 @@ export default function FloatingChat({ lang }: FloatingChatProps) {
     }
   }, [messages, isLoading, sessionId]);
 
-  // Update greeting when lang changes — only if no conversation has started
   useEffect(() => {
     const hasUserMessages = messages.some((m) => m.role === 'user');
     if (!hasUserMessages) {
       setMessages([{ role: 'assistant', content: t.greeting }]);
       setShowPrompts(true);
     }
-  }, [lang]);
+  }, []);
 
   // Escape key stops voice mode
   useEffect(() => {
@@ -319,7 +316,7 @@ export default function FloatingChat({ lang }: FloatingChatProps) {
   // Voice mode handlers
   const handleStartVoice = () => {
     setMode('voice');
-    voiceMode.start(messages, lang, sessionId, location.pathname);
+    voiceMode.start(messages, 'en', sessionId, location.pathname);
   };
 
   const handleStopVoice = () => {
@@ -397,7 +394,7 @@ export default function FloatingChat({ lang }: FloatingChatProps) {
           messages: [...messages, { role: 'user', content: text }].filter(
             (m) => m.role !== 'assistant' || m.content !== t.greeting,
           ),
-          lang,
+          lang: 'en',
           sessionId,
           currentPage: location.pathname,
         }),
@@ -723,9 +720,7 @@ export default function FloatingChat({ lang }: FloatingChatProps) {
                           {/* Degradation banner */}
                           {message.role === 'assistant' && message.ragDegraded && (
                             <div className={`mb-1 px-3 py-1 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400 ${isMobile ? 'text-xs' : 'text-[11px]'}`}>
-                              {lang === 'en'
-                                ? 'Answering without full access to my articles.'
-                                : 'Respondiendo sin acceso completo a mis artículos.'}
+                              Answering without full access to my articles.
                             </div>
                           )}
                           <div
@@ -1010,7 +1005,7 @@ export default function FloatingChat({ lang }: FloatingChatProps) {
                     whileTap={{ scale: 0.95 }}
                     onClick={() => sendMessage()}
                     disabled={isLoading || !input.trim()}
-                    aria-label={lang === 'en' ? 'Send message' : 'Enviar mensaje'}
+                    aria-label="Send message"
                     className={`rounded-xl bg-gradient-theme flex items-center justify-center text-white disabled:opacity-50 disabled:cursor-not-allowed transition-opacity ${
                       isMobile ? 'w-12 h-12' : 'w-10 h-10'
                     }`}
