@@ -126,7 +126,7 @@ function saveSession(messages: Message[], sessionId: string) {
 }
 
 export default function FloatingChat({ lang }: FloatingChatProps) {
-  const t = translations[lang].chat;
+  const t = translations.en.chat;
   const v = t.voice;
   const [isOpen, setIsOpen] = useState(() => window.location.hash === '#chat');
   const [immersive, setImmersive] = useState(false);
@@ -839,7 +839,7 @@ export default function FloatingChat({ lang }: FloatingChatProps) {
                       transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
                       className={`flex flex-wrap gap-2 pt-2 ${isMobile ? 'gap-2.5' : ''}`}
                     >
-                      {t.prompts.map((prompt, i) => (
+                      {t.prompts.map((prompt: { query: string; label: string; icon: string }, i: number) => (
                         <button
                           key={i}
                           onClick={() => handlePromptClick(prompt.query)}
@@ -869,11 +869,11 @@ export default function FloatingChat({ lang }: FloatingChatProps) {
                           {t.contactCtaTitle}
                         </p>
                         <a
-                          href={`mailto:${translations[lang].email}`}
+                          href={`mailto:${translations.en.email}`}
                           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-theme-r text-white text-sm font-medium hover:brightness-110 hover:shadow-lg hover:shadow-primary/25 active:brightness-95 transition-all duration-200"
                         >
                           <Mail className="w-4 h-4" aria-hidden="true" />
-                          {translations[lang].email}
+                          {translations.en.email}
                         </a>
                       </div>
                     </motion.div>
@@ -897,7 +897,7 @@ export default function FloatingChat({ lang }: FloatingChatProps) {
                         <span
                           className={`text-muted-foreground ${isMobile ? 'text-sm' : 'text-xs'}`}
                         >
-                          {translations[lang].ui.typingIndicator}
+                          {translations.en.ui.typingIndicator}
                         </span>
                       </div>
                     </motion.div>

@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useMemo, useReducer, useRef } from 'react'
-import { useLocation, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'motion/react'
-import { Mail, ExternalLink, Briefcase, GraduationCap, Award, Code, Users, Globe, Bot, Zap, Database, Layout, BadgeCheck, FolderGit2, Sparkles, Download, Github, Package, MessageSquare, Receipt, CalendarCheck, FileText, GitBranch, GitFork, Star, Network, Calendar, Percent, UserCheck, Image, TrendingUp, Timer, SkipForward, ThumbsUp, MessageCircle, Share2, ChevronRight, List, ArrowUp, Brain, Target, Inbox, Compass, GitMerge } from 'lucide-react'
+import { Mail, ExternalLink, Briefcase, GraduationCap, Code, Globe, Bot, Zap, BadgeCheck, FolderGit2, Sparkles, Download, Github, FileText, SkipForward, ThumbsUp, MessageCircle, Share2, List, ArrowUp } from 'lucide-react'
 import { translations, seo, type Lang } from './i18n'
 import { useHomeSeo } from './articles/use-article-seo'
 import { getTechIcon } from './tech-icons'
@@ -54,7 +54,7 @@ const HEAL_PARTICLES = [
   { char: '✦', left: '45%', delay: '1.5s', dur: '2.7s', size: '20px' },
 ]
 
-function BeamPill({ children }: { children: React.ReactNode }) {
+export function BeamPill({ children }: { children: React.ReactNode }) {
   const hydrated = useHydrated()
   return (
     <span className={`relative inline-block pl-0 pr-0 ${hydrated ? 'beam-pill' : ''}`}>
@@ -1391,7 +1391,7 @@ function StorySection({ t }: { t: (typeof translations)[Lang] }) {
   )
 }
 
-function CertLogo({ logo }: { logo: string }) {
+export function CertLogo({ logo }: { logo: string }) {
   const logos: Record<string, React.ReactNode> = {
     anthropic: (
       <svg viewBox="0 0 92.2 65" className="w-6 h-6" fill="currentColor" aria-hidden="true">
@@ -1429,7 +1429,6 @@ function CertLogo({ logo }: { logo: string }) {
 }
 
 function App() {
-  const location = useLocation()
   const lang: Lang = 'en'
   const t = translations[lang]
   const hydrated = useHydrated()
@@ -1725,8 +1724,8 @@ function App() {
                       {project.link.split('/').pop()}
                     </a>
                   )}
-                  {'caseStudyUrl' in project && project.caseStudyUrl && (
-                    <Link to={project.caseStudyUrl} className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline ml-4">
+                  {'caseStudyUrl' in project && Boolean(project.caseStudyUrl) && (
+                    <Link to={project.caseStudyUrl as string} className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline ml-4">
                       {'caseStudyLabel' in project ? (project.caseStudyLabel as string) : 'Case Study'}
                     </Link>
                   )}
@@ -1883,7 +1882,7 @@ function App() {
 
 {/* Teaching / Speaking cards */}
           <div className="grid md:grid-cols-2 gap-6">
-            {t.speaking.items.map((talk: { year: string; event: string; eventUrl: string; title: string; desc: string; pdf: string; featured: boolean; materialUrl?: string; materialLabel?: string }, i: number) => (
+            {t.speaking.items.map((talk: { year: string; event: string; eventUrl: string; title: string; desc: string; pdf: string; featured?: boolean; materialUrl?: string; materialLabel?: string }, i: number) => (
               <AnimatedSection key={i} delay={0.1 + i * 0.1}>
                 {talk.featured ? (
                   <div className="relative rounded-2xl p-[1.5px] bg-gradient-theme h-full">

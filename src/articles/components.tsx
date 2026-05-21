@@ -180,7 +180,7 @@ const FOOTER_I18N = {
   },
 } as const
 
-export function ArticleFooter({ lang: _lang, utmCampaign }: ArticleFooterProps) {
+export function ArticleFooter({ lang: _lang, utmCampaign: _utmCampaign }: ArticleFooterProps) {
   const f = FOOTER_I18N.en
   const fellowUrl = ''
   return (

@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { MapPin, Mail, ExternalLink, Award, GraduationCap, Briefcase, ChevronRight, Clock, HelpCircle } from 'lucide-react'
 import { aboutContent, type AboutLang } from './about-i18n'
 
@@ -8,7 +7,7 @@ const SOCIAL_LINKS: { name: string; url: string; rel?: string }[] = [
   { name: 'GitHub', url: 'https://github.com/bbeckwith-dev', rel: 'me noopener noreferrer' },
 ]
 
-export default function AboutPage({ lang = 'en' }: { lang?: AboutLang }) {
+export default function AboutPage({ lang: _lang = 'en' }: { lang?: AboutLang }) {
   const t = aboutContent.en
 
   useEffect(() => {
