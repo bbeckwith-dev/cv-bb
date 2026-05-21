@@ -375,32 +375,28 @@ export function classifyIntent(text) {
   const tags = []
 
   const jailbreakPatterns = [
-    'ignore previous', 'ignora las instrucciones', 'ignora todo',
-    'pretend', 'roleplay', 'act as', 'you are now',
+    'ignore previous', 'pretend', 'roleplay', 'act as', 'you are now',
     'forget', 'disregard', 'bypass', 'override', 'jailbreak',
-    'dan', 'developer mode', 'evil', 'malicious', 'hackear', 'hacking',
-    'system prompt', 'tu prompt', 'your prompt', 'instructions',
-    'protocolo de defensa', 'olvida todo', 'nueva personalidad',
+    'dan', 'developer mode', 'evil', 'malicious', 'hacking',
+    'system prompt', 'your prompt', 'instructions',
     'reset your', 'reveal your', 'show me your rules',
-    'your objective', 'your orders', 'tus órdenes', 'tus reglas',
-    'cuáles son tus instrucciones', 'rules configured', 'reglas configuradas',
+    'your objective', 'your orders', 'rules configured',
     'print all', 'print everything', 'yaml', 'json record',
     'dump', 'export', 'serialize', 'reproduce', 'output all',
-    'all of the above', 'todo lo anterior', 'everything above',
+    'all of the above', 'everything above',
     'repeat everything', 'write all above', 'copy all',
-    'show me everything', 'imprime todo', 'muestra todo lo anterior',
-    'repite todo', 'exporta', 'convierte a',
+    'show me everything',
   ]
   if (jailbreakPatterns.some(p => lower.includes(p))) {
     tags.push('jailbreak-attempt')
   }
 
-  if (/experiencia|experience|trabajo|work|career|carrera|santifer|irepair/.test(lower)) tags.push('topic:experience')
-  if (/proyecto|project|portfolio|github|código|code/.test(lower)) tags.push('topic:projects')
-  if (/contact|contacto|email|linkedin|hablar|talk|hire|contratar/.test(lower)) tags.push('topic:contact')
-  if (/stack|tech|tecnolog|python|react|airtable|claude|ai|ia|llm|agente|agent/.test(lower)) tags.push('topic:technical')
-  if (/salario|salary|money|dinero|rate|precio|cobr/.test(lower)) tags.push('topic:compensation')
-  if (/hola|hello|hi|hey|buenos|good/.test(lower) && text.length < 20) tags.push('greeting')
+  if (/experience|work|career/.test(lower)) tags.push('topic:experience')
+  if (/project|portfolio|github|code/.test(lower)) tags.push('topic:projects')
+  if (/contact|email|linkedin|talk|hire/.test(lower)) tags.push('topic:contact')
+  if (/stack|tech|python|react|claude|ai|llm|agent/.test(lower)) tags.push('topic:technical')
+  if (/salary|money|rate|compensation/.test(lower)) tags.push('topic:compensation')
+  if (/hello|hi|hey|good/.test(lower) && text.length < 20) tags.push('greeting')
 
   return tags.length > 0 ? tags : ['topic:general']
 }

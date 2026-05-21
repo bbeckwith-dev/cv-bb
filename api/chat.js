@@ -190,7 +190,7 @@ export default async function handler(req) {
         // Build tool_result and make second call (streaming)
         const toolResultContent = ragResult.chunks
           ? formatChunksForContext(ragResult.chunks)
-          : 'No relevant content found in portfolio articles. You MUST NOT fabricate project details. Say you don\'t have that information and suggest contacting Santiago directly.'
+          : 'No relevant content found in portfolio articles. You MUST NOT fabricate project details. Say you don\'t have that information and suggest contacting Brent directly.'
 
         const messagesWithTool = [
           ...cleanMessages,
@@ -626,7 +626,7 @@ async function scoreTrace(traceId, userMessage, response, ragUsed, langfuse) {
       max_tokens: 200,
       messages: [{
         role: 'user',
-        content: `Rate this chatbot response (Santiago's CV chatbot). Respond ONLY with JSON.
+        content: `Rate this chatbot response (Brent's CV chatbot). Respond ONLY with JSON.
 
 User: "${userMessage.slice(0, 300)}"
 Assistant: "${response.slice(0, 500)}"

@@ -66,7 +66,7 @@ console.log(`[indexnow] Pinging ${urls.length} URLs...`)
 // POST to IndexNow API
 // ---------------------------------------------------------------------------
 
-const host = 'santifer.io'
+const host = 'cv.brentbeckwith.com'
 const keyLocation = `https://${host}/indexnow-key.txt`
 
 const body = {
