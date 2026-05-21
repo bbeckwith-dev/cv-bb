@@ -350,7 +350,7 @@ export default function FloatingChat(_props: FloatingChatProps) {
   };
 
   // Can toggle to voice?
-  const canStartVoice = !isLoading && !isStreaming && voiceMode.isSupported;
+  const canStartVoice = false && !isLoading && !isStreaming && voiceMode.isSupported;
 
   const sendMessage = async (messageText?: string) => {
     const text = messageText || input.trim();
