@@ -94,6 +94,40 @@ export default async function handler(req) {
   try {
     const { messages, lang, sessionId, currentPage } = await req.json()
 
+    if (!Array.isArray(messages) || messages.length === 0) {
+      return new Response(JSON.stringify({ error: 'Invalid request' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      })
+    }
+    const validRoles = new Set(['user', 'assistant'])
+    for (const m of messages) {
+      if (typeof m?.role !== 'string' || !validRoles.has(m.role) || typeof m?.content !== 'string') {
+        return new Response(JSON.stringify({ error: 'Invalid request' }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' },
+        })
+      }
+    }
+    if (lang !== undefined && lang !== 'en') {
+      return new Response(JSON.stringify({ error: 'Invalid request' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      })
+    }
+    if (sessionId !== undefined && typeof sessionId !== 'string') {
+      return new Response(JSON.stringify({ error: 'Invalid request' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      })
+    }
+    if (currentPage !== undefined && typeof currentPage !== 'string') {
+      return new Response(JSON.stringify({ error: 'Invalid request' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      })
+    }
+
     // Input length validation
     const bodySize = JSON.stringify({ messages, lang, sessionId, currentPage }).length
     if (bodySize > 50000) {
