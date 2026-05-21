@@ -70,22 +70,22 @@ export const translations = {
       p1: "Systems and support engineer with deep experience building reliability across",
       p1Highlight: "enterprise IT",
       p1End:
-        " — from desktop support to Linux administration, security operations, and full-stack LAMP development. Led hosting migrations for five major ISP acquisitions covering 5,000+ domains with zero data loss. Built Python and shell scripts that cut manual processes by 70%.",
+        ", from desktop support to Linux administration, security operations, and full-stack LAMP development. Led hosting migrations for five major ISP acquisitions covering 5,000+ domains with zero data loss. Built Python and shell scripts that cut manual processes by 70%.",
       p2: "Support professional with an analyst's instinct.",
       p2Highlight: "",
       p2End: " Diagnosing problems, querying data, and building the documentation others rely on.",
       cards: [
         {
           title: "Systems Thinking",
-          desc: "Sees how parts interact — anticipates failure points and designs work so it doesn't break later",
+          desc: "Sees how parts interact. Anticipates failure points and designs work so it doesn't break later",
         },
         {
           title: "Process Automation",
-          desc: "If it repeats, automate it — reduced manual work by 70-80% through scripting",
+          desc: "If it repeats, automate it. Reduced manual work by 70-80% through scripting",
         },
         {
           title: "AI-Augmented Work",
-          desc: "Daily Claude user for over a year — research, troubleshooting, development",
+          desc: "Daily Claude user for over a year. Research, troubleshooting, development",
         },
       ],
     },
@@ -236,7 +236,7 @@ export const translations = {
       careerBreakCurrent: {
         title: "Career Break",
         period: "Sep 2025 - Present",
-        desc: "AI-assisted development workflows and product research. Applying years of operational knowledge to learning how to build, not just maintain.",
+        desc: "AI-assisted development workflows and product research. Applying years of operational knowledge to learning how to build, not just maintain. Looking for a team that invests in growing its people.",
       },
       amtrust: {
         company: "AmTrust Financial Services",
@@ -264,7 +264,7 @@ export const translations = {
         period: "Dec 2019 - Oct 2023",
         desc: "Maintained the CSOC's internal web applications, databases, and backup systems. The closest I've come to a full-stack development role, maintaining and extending LAMP applications while working inside a security operations team. Notable scripts affected hundreds of network devices and checked IP reputation at scale.",
         highlights: [
-          "Maintained CSOC warehousing LAMP website, wiki, and servers — the applications the security team relied on daily",
+          "Maintained CSOC warehousing LAMP website, wiki, and servers, the applications the security team relied on daily",
           "Maintained daily backups of CSOC websites and databases to AWS servers",
           "Consulted with CSOC management on new site features, then built and deployed them",
           "Crafted MySQL queries to pull structured, actionable data for management decision-making",
@@ -281,7 +281,7 @@ export const translations = {
         desc: "Eight years of hosting operations, customer migrations, and escalation support. Go-to resource for Linux and web/DNS/email hosting on the team, and the person who handled customer communications when mass communication was necessary.",
         highlights: [
           "Go-to resource for Linux, web/DNS/email hosting, and email filtering for a team of 8",
-          "Spearheaded hosting migrations across five major ISP acquisitions (Norlight, Nuvox, Paetec, Earthlink, Broadview) — 5,000+ domains from 60+ servers",
+          "Spearheaded hosting migrations across five major ISP acquisitions (Norlight, Nuvox, Paetec, Earthlink, Broadview), covering 5,000+ domains from 60+ servers",
           "Escalation point for eight Specialist I team members and four product soft rollouts",
           "Wrote the analysis script for a domain lookup and disable project that saved over $15,000 monthly",
           "Composed and managed customer communication campaigns across multiple migration waves",
@@ -304,7 +304,7 @@ export const translations = {
               "First-response application support for 30+ company-designed customer websites and tools",
               "Rotated system upgrade, on-call, and maintenance duties across 30+ servers and NFS storage",
               "Trusted with root access to the entire company technology stack",
-              "Earned Q-Excellence award — singular recognition out of 600+ employees",
+              "Earned Q-Excellence award, singular recognition out of 600+ employees",
             ],
           },
           {
@@ -441,7 +441,7 @@ export const translations = {
     },
     cta: {
       title: "Let's talk",
-      desc: "I'm pursuing roles across full-stack development, application support, data analysis, and technical writing. If you need someone who combines analytical depth with broad technical literacy and a belief that AI should enhance the human experience, not replace it — let's connect.",
+      desc: "I'm pursuing roles across full-stack development, application support, data analysis, and technical writing where I can grow alongside a team that values curiosity and initiative. If you need someone who combines analytical depth with broad technical literacy and a belief that AI should enhance the human experience, not replace it. Let's connect.",
       contact: "Contact",
     },
     ui: {

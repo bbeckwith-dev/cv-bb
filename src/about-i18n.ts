@@ -16,7 +16,7 @@ export const aboutContent = {
     bio: [
       'Most of my career has been in enterprise IT support: desktop services, Linux environments, hosting stacks, and a small stretch in security operations. I\'ve worked migrations covering thousands of domains across multiple ISP acquisitions, maintained LAMP applications, and written mass customer communications. I earned a Q-Excellence award as a singular recognition out of 600+ employees, and I\'ve held 95%+ customer satisfaction ratings supporting hundreds of business customers. I\'m good at this work and I\'m proud of it.',
       'But I want to do more than maintain and troubleshoot. I\'ve worked through the majority of The Odin Project\'s full-stack JavaScript track, used AI to adapt and extend projects like this portfolio site, and I\'m currently using AI tools daily for development, research, and problem-solving. I\'m not pivoting away from my background, rather, I\'m leveraging and building on top of it.',
-      'I\'m looking for roles where that combination matters: development, application support, or AI-adjacent work. Somewhere I can write code, solve problems, and keep learning.',
+      'I\'m looking for roles where that combination matters: development, application support, or AI-adjacent work. Somewhere I can write code, solve problems, and keep learning at a company that values growth and invests in its people.',
     ],
     seeking: 'Open to opportunities in',
     roles: ['Junior Full-Stack Developer', 'Junior Frontend Developer', 'WordPress Developer / Web Administrator', 'AI Product Support Engineer', 'Application Support Analyst', 'Technical Writer', 'Junior Data Analyst'],
@@ -48,7 +48,7 @@ export const aboutContent = {
     faqHeading: 'Frequently Asked Questions',
     faq: [
       { q: 'What is your tech stack?', a: 'AI: Claude, ChatGPT. Languages: Python, Bash, PowerShell, PHP, JavaScript, MySQL/MariaDB. Systems: Linux, Windows Server, ESXi. Infrastructure: Apache, BIND, Docker, AWS, Azure. Security: Fortinet, Solarwinds, Nagios. Platforms: Microsoft 365 Entra/Intune, ServiceNow, Git/GitHub.' },
-      { q: 'What kind of roles are you looking for?', a: 'Full-stack or frontend development, WordPress/web administration, application support, data analysis, technical writing, or AI product support. I want to apply 20+ years of systems experience alongside modern AI tools in roles where I can write code, solve problems, and keep learning.' },
+      { q: 'What kind of roles are you looking for?', a: 'Full-stack or frontend development, WordPress/web administration, application support, data analysis, technical writing, or AI product support. I want to apply 20+ years of systems experience alongside modern AI tools in roles where I can write code, solve problems, and grow, ideally somewhere that actively supports professional development.' },
     ],
     connectHeading: 'Connect',
     email: 'brent.beckwith@gmail.com',
