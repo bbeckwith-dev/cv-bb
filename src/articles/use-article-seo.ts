@@ -48,7 +48,7 @@ export function useArticleSeo(opts: ArticleSeoOpts) {
       publishedTime, modifiedTime, articleTags, jsonLd,
     } = opts
 
-    const url = `https://brentbeckwith.com/${slug}`
+    const url = `https://cv.brentbeckwith.com/${slug}`
 
     document.title = title
     document.documentElement.lang = 'en'
@@ -110,7 +110,7 @@ export function useHomeSeo({ title, description }: { title: string; description:
     document.querySelector('meta[property="og:description"]')?.setAttribute('content', description)
     document.querySelector('meta[property="og:locale"]')?.setAttribute('content', 'en_US')
 
-    const canonical = 'https://brentbeckwith.com/'
+    const canonical = 'https://cv.brentbeckwith.com/'
     document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonical)
     document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonical)
 

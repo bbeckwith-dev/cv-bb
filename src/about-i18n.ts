@@ -22,7 +22,7 @@ export const aboutContent = {
       { period: '2024–2025', role: 'Desktop Specialist II', company: 'AmTrust Financial Services', desc: 'Microsoft stack support for 6,000+ users globally' },
       { period: '2019–2023', role: 'Engineer I / Security Analyst I (CSOC)', company: 'Windstream', desc: 'LAMP dev, Python security automation, malicious IP analysis across 13M IPs' },
       { period: '2011–2019', role: 'Specialist II', company: 'Windstream', desc: 'Led 5 ISP acquisition migrations, 5,000+ domains, $15K/mo savings' },
-      { period: '2007–2011', role: 'Customer Support Engineer', company: 'Norlight / Windstream', desc: 'Q-Excellence award, 800+ business customers, 95%+ satisfaction' },
+      { period: '2004–2011', role: 'Customer Support Engineer', company: 'Norlight / Windstream', desc: 'Q-Excellence award, 800+ business customers, 95%+ satisfaction' },
     ],
     projectsHeading: 'Projects',
     projects: [

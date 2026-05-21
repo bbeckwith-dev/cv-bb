@@ -15,7 +15,7 @@ Most recently supported 6,000+ users across 20 states in Microsoft 365/Intune en
 
 ### Job Search / Professional Development
 
-Oct 2025 -- Present
+Sep 2025 -- Present
 
 * Building open-source tools: whisper-notes (Python, Anthropic API) and CCsimulator (JavaScript, Black-Scholes)
 * Daily AI-assisted development with Claude Code for scripting, automation, and problem solving

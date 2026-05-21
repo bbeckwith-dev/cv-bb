@@ -80,10 +80,10 @@ export function buildArticleJsonLd(opts: JsonLdOptions) {
       headline: opts.headline,
       alternativeHeadline: opts.alternativeHeadline,
       description: opts.description,
-      author: { '@id': 'https://brentbeckwith.com/#person' },
+      author: { '@id': 'https://cv.brentbeckwith.com/#person' },
       publisher: opts.publisher
         ? { '@type': 'Organization', name: opts.publisher.name, url: opts.publisher.url }
-        : { '@id': 'https://brentbeckwith.com/#person' },
+        : { '@id': 'https://cv.brentbeckwith.com/#person' },
       datePublished: opts.datePublished,
       dateModified: opts.dateModified,
       keywords: opts.keywords,
@@ -91,7 +91,7 @@ export function buildArticleJsonLd(opts: JsonLdOptions) {
       mainEntityOfPage: opts.url,
       image: opts.images,
       inLanguage: 'en',
-      isPartOf: { '@id': 'https://brentbeckwith.com/#website' },
+      isPartOf: { '@id': 'https://cv.brentbeckwith.com/#website' },
       ...(opts.about ? { about: opts.about } : {}),
       ...(opts.extra || {}),
       ...(opts.citation ? { citation: opts.citation } : {}),
@@ -108,7 +108,7 @@ export function buildArticleJsonLd(opts: JsonLdOptions) {
       '@type': 'BreadcrumbList',
       '@id': `${opts.url}/#breadcrumbs`,
       itemListElement: [
-        { '@type': 'ListItem', '@id': `${opts.url}/#breadcrumb-1`, position: 1, name: opts.breadcrumbHome, item: 'https://brentbeckwith.com' },
+        { '@type': 'ListItem', '@id': `${opts.url}/#breadcrumb-1`, position: 1, name: opts.breadcrumbHome, item: 'https://cv.brentbeckwith.com' },
         { '@type': 'ListItem', '@id': `${opts.url}/#breadcrumb-2`, position: 2, name: opts.breadcrumbCurrent, item: opts.url },
       ],
     },
@@ -147,7 +147,7 @@ export function buildJsonLdFromRegistry(
 
   const meta = config.seoMeta
   return buildArticleJsonLd({
-    url: `https://brentbeckwith.com/${i18n.slug}`,
+    url: `https://cv.brentbeckwith.com/${i18n.slug}`,
     headline: i18n.header.h1,
     alternativeHeadline: i18n.seo.title,
     description: i18n.seo.description,

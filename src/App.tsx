@@ -1029,14 +1029,9 @@ function ReflectiveTypewriter({
         const { slowRanges } = parsedHookLines[flatIndex]
         const isInSlowRange = slowRanges.some(([start, end]) => nextCharIndex >= start && nextCharIndex < end)
 
-        const textSoFar = currentText.slice(0, nextCharIndex)
-        const isAfterSentenceEnd = prevChar === '.' && nextChar === ' ' && textSoFar.includes('negocio')
-
         let delay = getTypingDelay(nextChar, prevChar)
 
-        if (isAfterSentenceEnd) {
-          delay = 800
-        } else if (isInSlowRange) {
+        if (isInSlowRange) {
           delay = delay * 4 + 80
         }
 

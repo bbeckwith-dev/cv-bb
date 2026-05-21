@@ -410,8 +410,8 @@ const privacyPages: { slug: string; html: string }[] = [];
 {
   const slug = 'privacy';
   const url = `https://cv.brentbeckwith.com/${slug}`;
-  const title = 'Privacy Policy | brentbeckwith.com';
-  const description = 'Privacy policy for brentbeckwith.com. How chatbot and website data is collected and used.';
+  const title = 'Privacy Policy | cv.brentbeckwith.com';
+  const description = 'Privacy policy for cv.brentbeckwith.com. How chatbot and website data is collected and used.';
 
   let renderedHtml: string;
   try {
@@ -482,7 +482,7 @@ await inlineCriticalCSS();
 const notFoundHtml = indexHtml
   .replace('<div id="root"></div>', `<div id="root"><div style="min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 1.5rem"><p style="font-size:6rem;font-weight:bold;color:var(--primary);margin-bottom:1rem;font-family:var(--font-display)">404</p><h1 style="font-size:1.5rem;font-weight:600;color:var(--foreground);margin-bottom:0.5rem">Page not found</h1><p style="color:var(--muted-foreground);margin-bottom:2rem;max-width:28rem">The page you're looking for doesn't exist or has been moved.</p><a href="/" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.5rem;border-radius:0.75rem;background:var(--primary);color:var(--primary-foreground);font-weight:500;text-decoration:none">← Back to home</a></div></div>`)
   .replace(/<meta name="robots" content="[^"]*" \/>/, '<meta name="robots" content="noindex, nofollow" />')
-  .replace(/<title>[^<]*<\/title>/, '<title>404 — Page not found | brentbeckwith.com</title>');
+  .replace(/<title>[^<]*<\/title>/, '<title>404 — Page not found | cv.brentbeckwith.com</title>');
 
 // Add noindex if no robots meta exists
 if (!notFoundHtml.includes('name="robots"')) {

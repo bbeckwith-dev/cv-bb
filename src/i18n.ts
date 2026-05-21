@@ -234,7 +234,7 @@ export const translations = {
     experience: {
       title: "Work Experience",
       careerBreakCurrent: {
-        title: "Career Break",
+        title: "Job Search / Professional Development",
         period: "Sep 2025 - Present",
         desc: "AI-assisted development workflows and product research. Applying years of operational knowledge to learning how to build, not just maintain. Looking for a team that invests in growing its people.",
       },
