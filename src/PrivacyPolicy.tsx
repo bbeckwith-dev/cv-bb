@@ -29,7 +29,8 @@ const content = {
         'Anthropic (Claude): processes chatbot messages to generate responses.',
         'OpenAI (Realtime API): processes voice mode audio for real-time conversation.',
         'Langfuse: stores anonymized conversation traces for observability and quality improvement.',
-        'Vercel: hosts the website and collects anonymous usage analytics.',
+        'GoatCounter: collects anonymous, cookie-free usage analytics (pages visited, referrers, browser, screen size). No personal data is tracked.',
+        'Vercel: hosts the website.',
       ],
     },
     {
