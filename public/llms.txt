@@ -1,0 +1,81 @@
+# Brent Beckwith — SOC Analyst & AI-Augmented Problem Solver
+
+> cv.brentbeckwith.com — Portfolio site with AI chatbot
+
+## About
+
+SOC analyst and support specialist with broad enterprise IT experience — Linux admin, security operations, LAMP application maintenance. Led hosting migrations for five ISP acquisitions — 5,000+ domains, zero data loss. Created scripts that cut manual processes by 70%. Awarded Q-Excellence recognition, a singular award out of 600+ employees. Now building with AI tools daily and looking for the next chapter.
+
+Location: Madison, OH · Remote / Hybrid
+Email: brent.beckwith@gmail.com
+GitHub: github.com/bbeckwith-dev
+LinkedIn: linkedin.com/in/brent-beckwith
+
+## Mindset
+
+- Systems thinker: understand the full stack, find the root cause, fix it properly
+- Process improver: if it repeats, automate it
+- Analytical and thorough: measure before you optimize
+- Honest about what I know and what I'm learning
+- Uses AI tools daily — advocates thoughtful, human-focused adoption
+
+## Core Competencies
+
+- Enterprise IT: Windows Server, Linux (CentOS), Solaris, Unix, Microsoft 365/Intune, Active Directory, ESXi
+- Scripting & Development: Python, Bash/Shell, PowerShell, PHP, JavaScript, HTML/CSS, SQL/MySQL, Perl, CGI
+- Infrastructure: Apache, BIND (DNS), djbdns/tinydns, Exim, Qmail, AWS, Azure, Docker, NetApp/NFS
+- Security: Fortinet, Solarwinds, NagiOS/Sentry, Trustwave, Proofpoint, Mimecast
+- Platforms: Hostopia, Plesk, Intermedia Hosted Exchange, Google Apps, Microsoft 365 Entra/Intune
+- Tools: Git/GitHub, ServiceNow, Remedy, Footprints, Metasolv, Citrix
+- Process: ITIL, Six Sigma, hardware lifecycle management, asset management, migration planning
+
+## Work Experience
+
+### AmTrust Financial Services (2024–2025) — Desktop Specialist II
+Technical support for Windows 11, Office 365, and Intune to 6,000+ users across 20 states. Managed end-to-end hardware lifecycle for company's largest office. Analyzed hardware replacement requests from Level I techs, verifying diagnosis before approval. Built documentation and knowledge-sharing resources to reduce information silos.
+
+### Career Break (2023–2024)
+Caught in a Windstream reduction in force despite consistently above-average reviews. Relocated cross-country. Started The Odin Project (Full Stack JavaScript). Explored writing, photography, and media creation.
+
+### Windstream Communications (2019–2023) — Security Analyst I (CSOC)
+Title changed upon transition from Domain Services into the Cyber Security Operations Center. Maintained CSOC warehousing LAMP website, wiki, and servers. Maintained Domain Services LAMP research website and full-stack VM environment. Consulted CSOC management on new site features, then built and deployed them. Automated daily backups to AWS. Crafted MySQL queries for actionable data per management request. Built Python script to cross-reference malicious IP lists against 13 million Windstream IPs. Developed Python scripts to bulk query hundreds of Fortinet devices. Performance rating: "Highly Successful" or "Superior" on every annual review — no exceptions.
+
+Tech stack: ESXi, Linux, SQL, Apache, PHP, HTML, CSS, JavaScript, Git, Python, Bash, Docker, AWS, Fortinet, Azure.
+
+### Windstream Communications (2011–2019) — Specialist II
+Promoted from Norlight Customer Support Engineer after Windstream acquisition. Go-to resource for Linux, web/DNS/email hosting, and email filtering for team of 8. Spearheaded hosting migrations for five ISP acquisitions (Norlight, Nuvox, Paetec, Earthlink, Broadview) — 5,000+ domains from 60+ servers covering 20+ products. Saved $15,000/month through domain lookup/disable project. Created scripts reducing manual processes by 70%. Managed MySQL databases for thousands of customer domains. Escalation point for 8 Specialist I team members.
+
+### Norlight Telecommunications (2004–2011) — Customer Support Engineer
+Q-Excellence award — singular recognition out of 600+ employees. Owned provisioning and operations for web, email, DNS hosting, cloud email filtering (Cleanmail), and fax-to-email system for 800+ business customers. 95%+ customer satisfaction. Completed hosting and mail-filtering platform migrations for 500+ customers and authored support documentation. Trusted with root access to entire company technology stack.
+
+### Cinergy Communications (2001–2004) — Helpdesk Technician
+ISP helpdesk supporting business and residential customers across Windows and Mac.
+
+## Projects
+
+### whisper-notes
+github.com/bbeckwith-dev/whisper-notes | Python, Anthropic API, OpenAI Whisper
+
+CLI tool that transcribes audio and processes documents into structured markdown for Obsidian vaults. Integrates OpenAI Whisper for transcription and Claude (streaming API) for intelligent formatting. 500+ lines of tests across 8 test files.
+
+### CCsimulator
+github.com/bbeckwith-dev/CCsimulator | JavaScript, Chart.js, Black-Scholes
+
+Browser-based covered call options simulator with Black-Scholes European call pricing, all five Greeks, geometric Brownian motion, real-time risk gauges, payoff diagrams, and 7 preset market scenarios. Single-file vanilla JS (~1,700 lines), no build step.
+
+### This Portfolio
+React 19, TypeScript, Tailwind, Claude API, Supabase pgvector, Vercel
+
+AI-powered portfolio with chatbot, RAG retrieval, voice mode, and Langfuse observability. Adapted from an open-source template and extended with original content and career data.
+
+## AI-Augmented Workflow
+
+Daily Claude user for over a year — research, troubleshooting, development. Built whisper-notes integrating Anthropic API with streaming and OpenAI Whisper. Advocates for thoughtful AI adoption that enhances the human experience.
+
+## Education
+
+- Associate Degree, Computer Networking Systems — ITT Technical Institute (GPA 3.5)
+- The Odin Project — Full Stack JavaScript
+- Microsoft Azure Fundamentals
+- AWS Cloud Practitioner Training
+- Six Sigma

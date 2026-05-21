@@ -32,90 +32,38 @@ interface ProofPoint {
 const PROOF_POINTS: ProofPoint[] = [
   // -- Projects (i18n.ts → projects) --
   {
-    source: 'i18n.ts → projects → AI Solutions Playbook',
-    terms: ['AI Solutions Playbook', 'context switching', 'SESSION_BRIEF'],
+    source: 'i18n.ts → projects → whisper-notes',
+    terms: ['whisper-notes', 'Anthropic API', 'OpenAI Whisper'],
   },
   {
-    source: 'i18n.ts → projects → Content Digest',
-    terms: ['Content Digest'],
-  },
-  {
-    source: 'i18n.ts → projects → Life OS',
-    terms: ['Life OS'],
-  },
-  {
-    source: 'i18n.ts → projects → Career Ops',
-    terms: ['Career Ops'],
-  },
-  {
-    source: 'i18n.ts → projects → Claude Pulse',
-    terms: ['Claude Pulse'],
-  },
-  {
-    source: 'i18n.ts → projects → Claude Eye',
-    terms: ['Claude Eye'],
-  },
-  {
-    source: 'i18n.ts → projects → Claudeable',
-    terms: ['Claudeable'],
-  },
-  {
-    source: 'i18n.ts → projects → ProjectOS Predict',
-    terms: ['ProjectOS Predict'],
+    source: 'i18n.ts → projects → CCsimulator',
+    terms: ['CCsimulator', 'Black-Scholes'],
   },
 
-  // -- Claude Code Power User (i18n.ts → claudeCode) --
+  // -- AI workflow (i18n.ts → claudeCode) --
   {
     source: 'i18n.ts → claudeCode',
-    terms: ['multi-agent', 'IPC', 'memory persistence', 'custom', 'skills'],
-  },
-
-  // -- Speaking & Teaching (i18n.ts → speaking) --
-  {
-    source: 'i18n.ts → speaking → AI Fluency Educator',
-    terms: ['AI Fluency Educator', '4D', 'Delegation', 'Discernment'],
-  },
-  {
-    source: 'i18n.ts → speaking → Teaching Fellow',
-    terms: ['Teaching Fellow'],
-  },
-  {
-    source: 'i18n.ts → speaking → Hiperautomatiza',
-    terms: ['Hiperautomatiza'],
-  },
-
-  // -- Self-Healing Chatbot (chatbot-i18n.ts) --
-  {
-    source: 'chatbot-i18n.ts → defense',
-    terms: ['6-layer', 'canary token', 'fingerprint'],
-  },
-  {
-    source: 'chatbot-i18n.ts → evals',
-    terms: ['71', 'CI gate', 'trace-to-eval'],
-  },
-  {
-    source: 'chatbot-i18n.ts → cost',
-    terms: ['$0.005', '$0 infrastructure'],
-  },
-  {
-    source: 'chatbot-i18n.ts → batch eval',
-    terms: ['Sonnet', 'intent', 'quality', 'safety', 'jailbreak', 'Resend'],
-  },
-
-  // -- Articles published (registry.ts) --
-  {
-    source: 'articles/registry.ts',
-    terms: ['n8n for Product Managers', 'Jacobo', 'Programmatic'],
+    terms: ['Claude', 'AI'],
   },
 
   // -- Key experience points --
   {
-    source: 'i18n.ts → experience → Jacobo',
-    terms: ['Jacobo', '90%', 'self-service'],
+    source: 'i18n.ts → experience → Windstream',
+    terms: ['Windstream', '5,000+', 'CSOC'],
   },
   {
-    source: 'i18n.ts → experience → pSEO',
-    terms: ['Programmatic', 'Airtable', 'DataForSEO'],
+    source: 'i18n.ts → experience → Norlight',
+    terms: ['Norlight', 'Q-Excellence', '800+'],
+  },
+  {
+    source: 'i18n.ts → experience → AmTrust',
+    terms: ['AmTrust', '6,000+'],
+  },
+
+  // -- Core identity --
+  {
+    source: 'cv.md → summary',
+    terms: ['SOC', 'Linux', 'Python'],
   },
 ]
 

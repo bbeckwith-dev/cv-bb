@@ -1,0 +1,1 @@
+export default {"date":"2026-05-21T17:12:29.737Z","passRate":0,"totalTests":0,"passed":0,"failed":0,"categories":[],"failedTests":[]}

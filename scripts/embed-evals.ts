@@ -180,6 +180,7 @@ function main() {
     results = generatePlaceholder()
   }
 
+  fs.mkdirSync(path.dirname(OUTPUT_JSON), { recursive: true })
   fs.writeFileSync(OUTPUT_JSON, JSON.stringify(results, null, 2))
   // Also write as JS module for Edge Runtime compatibility (no import assertions needed)
   fs.writeFileSync(OUTPUT_JS, `export default ${JSON.stringify(results)}`)
