@@ -15,7 +15,7 @@ export const aboutContent = {
     lastUpdated: 'May 2026',
     bio: [
       'Most of my career has been in enterprise IT support: desktop services, Linux environments, hosting stacks, and a small stretch in security operations. I\'ve worked migrations covering thousands of domains across multiple ISP acquisitions, maintained LAMP applications, and written mass customer communications. I earned a Q-Excellence award as a singular recognition out of 600+ employees, and I\'ve held 95%+ customer satisfaction ratings supporting hundreds of business customers. I\'m good at this work and I\'m proud of it.',
-      'But I want to do more than maintain and troubleshoot. I\'ve worked through the majority of The Odin Project\'s full-stack JavaScript track, used AI to build projects like this portfolio site, and I\'m currently using AI tools daily for development, research, and problem-solving. I\'m not pivoting away from my background, rather, I\'m leveraging and building on top of it.',
+      'But I want to do more than maintain and troubleshoot. I\'ve worked through the majority of The Odin Project\'s full-stack JavaScript track, used AI to adapt and extend projects like this portfolio site, and I\'m currently using AI tools daily for development, research, and problem-solving. I\'m not pivoting away from my background, rather, I\'m leveraging and building on top of it.',
       'I\'m looking for roles where that combination matters: development, application support, or AI-adjacent work. Somewhere I can write code, solve problems, and keep learning.',
     ],
     seeking: 'Open to opportunities in',

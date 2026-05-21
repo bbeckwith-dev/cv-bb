@@ -1,8 +1,8 @@
 export const seo = {
   en: {
-    title: "Brent Beckwith | Systems Engineer & AI-Augmented Problem Solver",
+    title: "Brent Beckwith | SOC Analyst & AI-Augmented Problem Solver",
     description:
-      "Systems engineer with deep enterprise IT experience. 5,000+ domain migrations, zero data loss. Python automation, Linux administration, security operations. Uses AI daily to solve complex problems.",
+      "SOC analyst with deep enterprise IT experience. 5,000+ domain migrations, zero data loss. Python automation, Linux administration, security operations. Uses AI daily to solve complex problems.",
   },
 };
 

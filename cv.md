@@ -7,7 +7,7 @@
 
 ## Professional Summary
 
-Systems and support engineer with deep experience building reliability across enterprise IT — from desktop support to Linux administration, security operations, and full-stack LAMP development. Led hosting migrations for five major ISP acquisitions covering 5,000+ domains with zero data loss. Built Python and shell scripts that cut manual processes by 70%. Maintained critical LAMP applications, MySQL databases, and AWS backup infrastructure. Awarded Q-Excellence recognition (singular award out of 600+ employees) for outstanding performance.
+SOC analyst and support specialist with deep experience building reliability across enterprise IT — from desktop support to Linux administration, security operations, and full-stack LAMP development. Led hosting migrations for five major ISP acquisitions covering 5,000+ domains with zero data loss. Built Python and shell scripts that cut manual processes by 70%. Maintained critical LAMP applications, MySQL databases, and AWS backup infrastructure. Awarded Q-Excellence recognition (singular award out of 600+ employees) for outstanding performance.
 
 Most recently supported 6,000+ users across 20 states in Microsoft 365/Intune environments. Uses AI tools daily for research, troubleshooting, and process improvement — advocates for thoughtful, human-focused AI adoption.
 

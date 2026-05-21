@@ -174,13 +174,13 @@ interface ArticleFooterProps {
 
 const FOOTER_I18N = {
   es: {
-    role: 'Systems Engineer & AI Builder',
+    role: 'SOC Analyst & AI-Augmented Problem Solver',
     bio: '20+ years enterprise IT. Building with AI daily.',
     fellowAt: '',
     copyright: 'All rights reserved.',
   },
   en: {
-    role: 'Systems Engineer & AI Builder',
+    role: 'SOC Analyst & AI-Augmented Problem Solver',
     bio: '20+ years enterprise IT. Building with AI daily.',
     fellowAt: '',
     copyright: 'All rights reserved.',

@@ -1,6 +1,6 @@
 # Most bots crawl. The best ones read llms.txt → /llms.txt
 #
-# Built by Brent Beckwith — brent.beckwith@gmail.com
+# Adapted by Brent Beckwith — brent.beckwith@gmail.com
 # Stack: React 19 · Claude API · Vercel Edge · 71 evals · 6-layer defense · voice mode
 
 User-agent: *
