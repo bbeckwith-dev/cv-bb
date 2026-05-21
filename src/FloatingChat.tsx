@@ -26,9 +26,7 @@ interface RagSource {
   section_id: string;
   section_anchor: string;
   page_path_en: string;
-  page_path_es: string;
   article_slug_en: string;
-  article_slug_es: string;
 }
 
 interface Message {
@@ -51,7 +49,7 @@ const PromptIcon = ({ icon }: { icon: string }) => {
   return <Icon className="w-3.5 h-3.5" aria-hidden="true" />;
 };
 
-// Hook para detectar móvil
+// Detect mobile viewport
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -199,7 +197,7 @@ export default function FloatingChat(_props: FloatingChatProps) {
     return () => container.removeEventListener('scroll', onScroll);
   }, [isOpen]);
 
-  // Scroll automático: only if user hasn't scrolled up
+  // Auto-scroll: only if user hasn't scrolled up
   useEffect(() => {
     if (!isOpen || !isAtBottomRef.current) return;
     messagesEndRef.current?.scrollIntoView({
@@ -222,7 +220,7 @@ export default function FloatingChat(_props: FloatingChatProps) {
     return () => window.removeEventListener('openChat', handleOpenChat);
   }, []);
 
-  // Bloquear scroll del body cuando el chat está abierto en móvil
+  // Lock body scroll when chat is open on mobile
   useEffect(() => {
     if (isMobile && isOpen) {
       const scrollY = window.scrollY;

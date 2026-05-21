@@ -73,11 +73,9 @@ function getAnthropic(): Anthropic | null {
 interface ChunkMetadata {
   article_id: string
   article_slug_en: string
-  article_slug_es: string
   section_id: string
   section_anchor: string
   page_path_en: string
-  page_path_es: string
   source_file: string
   format: 'i18n' | 'markdown' | 'plaintext'
 }

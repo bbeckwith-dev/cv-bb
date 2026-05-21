@@ -27,9 +27,7 @@ export interface RagSource {
   section_id: string;
   section_anchor: string;
   page_path_en: string;
-  page_path_es: string;
   article_slug_en: string;
-  article_slug_es: string;
 }
 
 export const SESSION_TIMEOUT_S = 120;
@@ -51,7 +49,7 @@ export function useVoiceMode() {
   const [liveTranscript, setLiveTranscript] = useState('');
   const [voiceSources, setVoiceSources] = useState<RagSource[]>([]);
   const currentPageRef = useRef('');
-  const addDebug = (msg: string) => { console.log('[Voice]', msg); setDebugLog(prev => [...prev.slice(-9), msg]); };
+  const addDebug = (msg: string) => { if (import.meta.env.DEV) console.log('[Voice]', msg); setDebugLog(prev => [...prev.slice(-9), msg]); };
 
   const wsRef = useRef<WebSocket | null>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
@@ -549,8 +547,7 @@ export function useVoiceMode() {
 
   // Handle events from OpenAI Realtime API
   const handleRealtimeEvent = useCallback((data: Record<string, unknown>, ws: WebSocket, lang: string, sessionId: string) => {
-    // Log all events for debugging (remove in production)
-    if (data.type !== 'response.audio.delta' && data.type !== 'input_audio_buffer.speech_started') {
+    if (import.meta.env.DEV && data.type !== 'response.audio.delta' && data.type !== 'input_audio_buffer.speech_started') {
       console.log('[Voice]', data.type, data.type === 'error' ? data.error : '');
     }
 

@@ -31,6 +31,42 @@ function getLangfuse() {
 }
 
 // ---------------------------------------------------------------------------
+// Rate limiting (in-memory, per-isolate)
+// Vercel Edge isolates share memory within a single instance but NOT across
+// regions or cold starts. This prevents basic abuse; for strict global limits
+// add Upstash Redis later.
+// ---------------------------------------------------------------------------
+
+const RATE_LIMIT_WINDOW_MS = 60_000
+const RATE_LIMIT_MAX = 20
+
+/** @type {Map<string, number[]>} */
+const rateLimitMap = new Map()
+
+function isRateLimited(req) {
+  const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
+    || req.headers.get('x-real-ip')
+    || 'unknown'
+
+  const now = Date.now()
+  const windowStart = now - RATE_LIMIT_WINDOW_MS
+  const timestamps = rateLimitMap.get(ip) || []
+  const recent = timestamps.filter(t => t > windowStart)
+  recent.push(now)
+  rateLimitMap.set(ip, recent)
+
+  if (rateLimitMap.size > 10_000) {
+    for (const [key, val] of rateLimitMap) {
+      const filtered = val.filter(t => t > windowStart)
+      if (filtered.length === 0) rateLimitMap.delete(key)
+      else rateLimitMap.set(key, filtered)
+    }
+  }
+
+  return recent.length > RATE_LIMIT_MAX
+}
+
+// ---------------------------------------------------------------------------
 // Handler
 // ---------------------------------------------------------------------------
 
@@ -43,6 +79,13 @@ export default async function handler(req) {
 
   if (req.method !== 'POST') {
     return new Response('Method not allowed', { status: 405 })
+  }
+
+  if (isRateLimited(req)) {
+    return new Response(JSON.stringify({ error: 'Too many requests. Please wait a moment.' }), {
+      status: 429,
+      headers: { 'Content-Type': 'application/json', 'Retry-After': '60' },
+    })
   }
 
   const langfuse = getLangfuse()
@@ -581,7 +624,7 @@ function streamResponse({
             controller.close()
             if (langfuse) waitUntil(langfuse.flushAsync())
             return
-          } catch { /* fallback also failed, fall through to error message */ }
+          } catch (fallbackErr) { console.error('[chat] SSE fallback stream failed:', fallbackErr) }
         }
 
         // Last resort: send error message through SSE
@@ -590,7 +633,8 @@ function streamResponse({
           controller.enqueue(encoder.encode(`data: ${JSON.stringify({ text: errorText, replace: true })}\n\n`))
           controller.enqueue(encoder.encode('data: [DONE]\n\n'))
           controller.close()
-        } catch {
+        } catch (sseErr) {
+          console.error('[chat] SSE error delivery failed:', sseErr)
           controller.error(error)
         }
         if (langfuse) waitUntil(langfuse.flushAsync())

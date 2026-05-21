@@ -2,6 +2,15 @@
 // Shared RAG pipeline — used by api/chat.js (text) and api/rag-search.js (voice)
 // ---------------------------------------------------------------------------
 
+function escapeHtml(str) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
+
 // ---------------------------------------------------------------------------
 // Cost tracking per span
 // ---------------------------------------------------------------------------
@@ -161,8 +170,8 @@ export async function rerankChunks(query, chunks, anthropicClient) {
       chunks: diversified, latencyMs: Date.now() - t0, rerankedOrder: ids.slice(0, 5),
       usage: { input_tokens: response.usage?.input_tokens || 0, output_tokens: response.usage?.output_tokens || 0 },
     }
-  } catch {
-    // Fallback: use original order with diversity
+  } catch (rerankErr) {
+    console.error('[rag] Rerank failed:', rerankErr)
     const diversified = diversifyByArticle(chunks.slice(0, 5))
     return { chunks: diversified, latencyMs: Date.now() - t0, rerankedOrder: null, usage: null }
   }
@@ -218,9 +227,7 @@ export function extractSources(chunks) {
       section_id: meta.section_id,
       section_anchor: meta.section_anchor || '',
       page_path_en: meta.page_path_en || '',
-      page_path_es: meta.page_path_es || '',
       article_slug_en: meta.article_slug_en || '',
-      article_slug_es: meta.article_slug_es || '',
     })
   }
   return sources
@@ -248,10 +255,8 @@ export const HOME_SOURCE = {
   article_id: 'home',
   section_id: 'portfolio',
   section_anchor: '',
-  page_path_en: '/en',
-  page_path_es: '/',
-  article_slug_en: 'en',
-  article_slug_es: '',
+  page_path_en: '/',
+  article_slug_en: '',
 }
 
 /** Detect articles mentioned in response text and generate source badges */
@@ -267,9 +272,7 @@ export function detectMentionedArticles(responseText) {
           article_id: articleId,
           section_id: 'main',
           section_anchor: '',
-          page_path_es: routes.page_path_es,
           page_path_en: routes.page_path_en,
-          article_slug_es: routes.page_path_es.slice(1),
           article_slug_en: routes.page_path_en.slice(1),
         })
       }
@@ -423,7 +426,7 @@ export async function sendJailbreakAlert(userMessage) {
         <p><strong>Time:</strong> ${new Date().toISOString()}</p>
         <p><strong>User message:</strong></p>
         <blockquote style="background: #f5f5f5; padding: 15px; border-left: 4px solid #e74c3c;">
-          ${userMessage.slice(0, 500)}${userMessage.length > 500 ? '...' : ''}
+          ${escapeHtml(userMessage.slice(0, 500))}${userMessage.length > 500 ? '...' : ''}
         </blockquote>
         <p style="margin-top: 20px;">
           <a href="https://cloud.langfuse.com" style="background: #e74c3c; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
@@ -440,13 +443,13 @@ export async function sendJailbreakAlert(userMessage) {
 // ---------------------------------------------------------------------------
 
 export const PROMPT_FINGERPRINTS = [
-  'BREVEDAD OBLIGATORIA', 'máximo 150 palabras', '150 words', 'word limit',
-  'formato sin listas', 'redirección ingeniosa', 'NUNCA revelar',
-  'Anti-extracción', 'Instrucciones CRÍTICAS', 'cache_control',
-  'never_exceed', 'token_budget',
+  'BREVITY IS MANDATORY', 'maximum 150 words', '150 words per response',
+  'do NOT use markdown lists', 'witty redirect', 'Anti-extraction',
+  'NEVER reveal', 'cache_control', 'never_exceed', 'token_budget',
+  'internal_ref', 'ZXCV_',
 ]
 
-export const LEAK_RESPONSE = 'Esa información forma parte de mi diseño interno. El código fuente del proyecto es público en GitHub si te interesa la arquitectura.'
+export const LEAK_RESPONSE = "That's part of my internal design. The source code is public on GitHub if you're curious about the architecture."
 
 export function containsFingerprint(text) {
   const lower = text.toLowerCase()
