@@ -1,4 +1,4 @@
-export type AboutLang = 'es' | 'en'
+export type AboutLang = 'en'
 
 export const aboutContent = {
   en: {
@@ -53,5 +53,4 @@ export const aboutContent = {
     connectHeading: 'Connect',
     email: 'brent.beckwith@gmail.com',
   },
-  es: {} as typeof aboutContent['en'],
 } as const

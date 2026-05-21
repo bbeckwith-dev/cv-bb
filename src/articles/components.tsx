@@ -84,13 +84,12 @@ interface ArticleHeaderProps {
   editorId?: string
 }
 
-const MONTHS_ES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic']
 const MONTHS_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
-function formatDateHuman(iso: string, lang: 'es' | 'en'): string {
+function formatDateHuman(iso: string, _lang: 'es' | 'en'): string {
   const [y, m, d] = iso.split('-').map(Number)
   if (!y || !m || !d) return iso
-  const month = (lang === 'es' ? MONTHS_ES : MONTHS_EN)[m - 1]
-  return lang === 'es' ? `${d} ${month} ${y}` : `${month} ${d}, ${y}`
+  const month = MONTHS_EN[m - 1]
+  return `${month} ${d}, ${y}`
 }
 
 export function ArticleHeader({
@@ -152,7 +151,7 @@ export function ArticleHeader({
             <span className="inline-flex items-center gap-1"><Clock className="w-3.5 h-3.5" />{readingTime}</span>
             {dateModifiedISO && dateModifiedISO !== dateISO && (
               <span className="text-xs text-muted-foreground/80">
-                · {lang === 'es' ? 'Actualizado' : 'Updated'} <time dateTime={dateModifiedISO}>{formatDateHuman(dateModifiedISO, lang ?? 'es')}</time>
+                · Updated <time dateTime={dateModifiedISO}>{formatDateHuman(dateModifiedISO, lang ?? 'en')}</time>
               </span>
             )}
           </div>
@@ -173,12 +172,6 @@ interface ArticleFooterProps {
 }
 
 const FOOTER_I18N = {
-  es: {
-    role: 'SOC Analyst & AI-Augmented Problem Solver',
-    bio: '20+ years enterprise IT. Building with AI daily.',
-    fellowAt: '',
-    copyright: 'All rights reserved.',
-  },
   en: {
     role: 'SOC Analyst & AI-Augmented Problem Solver',
     bio: '20+ years enterprise IT. Building with AI daily.',
@@ -187,8 +180,8 @@ const FOOTER_I18N = {
   },
 } as const
 
-export function ArticleFooter({ lang, utmCampaign }: ArticleFooterProps) {
-  const f = FOOTER_I18N[lang]
+export function ArticleFooter({ lang: _lang, utmCampaign }: ArticleFooterProps) {
+  const f = FOOTER_I18N.en
   const fellowUrl = ''
   return (
     <footer className="mt-16 pt-8 border-t border-border">
@@ -597,7 +590,7 @@ interface GitHubRepoBadgeProps {
   lang: 'es' | 'en'
 }
 
-export function GitHubRepoBadge({ repo, stars, forks, lang }: GitHubRepoBadgeProps) {
+export function GitHubRepoBadge({ repo, stars, forks, lang: _lang }: GitHubRepoBadgeProps) {
   return (
     <a
       href={`https://github.com/${repo}`}
@@ -616,7 +609,7 @@ export function GitHubRepoBadge({ repo, stars, forks, lang }: GitHubRepoBadgePro
       </span>
       <span className="w-px h-4 bg-border/50" />
       <span className="text-sm text-primary group-hover:underline flex items-center gap-1">
-        {lang === 'es' ? 'Ver en GitHub' : 'View on GitHub'}
+        View on GitHub
         <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7V17" /></svg>
       </span>
     </a>

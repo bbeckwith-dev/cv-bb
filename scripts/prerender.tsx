@@ -90,27 +90,6 @@ try {
   process.exit(1);
 }
 
-// --- ES version (inject into existing index.html) ---
-let esHtml: string;
-try {
-  esHtml = renderApp('es');
-} catch (err) {
-  console.error('[prerender] SSR failed for ES, falling back to empty root:', err);
-  esHtml = '';
-}
-
-const esSeo = seo.en;
-
-const injectedEs = indexHtml
-  .replace('<div id="root"></div>', `<div id="root">${esHtml}</div>`)
-  .replace(/<title>[^<]*<\/title>/, `<title>${esc(esSeo.title)}</title>`)
-  .replace(/<meta name="title" content="[^"]*" \/>/, `<meta name="title" content="${esc(esSeo.title)}" />`)
-  .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${esc(esSeo.description)}" />`)
-  .replace(/<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${esc(esSeo.title)}" />`)
-  .replace(/<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${esc(esSeo.description)}" />`)
-  .replace(/<meta name="twitter:title" content="[^"]*" \/>/, `<meta name="twitter:title" content="${esc(esSeo.title)}" />`)
-  .replace(/<meta name="twitter:description" content="[^"]*" \/>/, `<meta name="twitter:description" content="${esc(esSeo.description)}" />`);
-
 // --- EN version ---
 let enHtml: string;
 try {
@@ -139,7 +118,7 @@ let enPage = indexHtml
   .replace(/<meta name="twitter:description" content="[^"]*" \/>/, `<meta name="twitter:description" content="${esc(enSeo.description)}" />`);
 
 // ---------------------------------------------------------------------------
-// About / Entity Home — ES (/sobre-mi) + EN (/about)
+// About / Entity Home — /about
 // ---------------------------------------------------------------------------
 
 const aboutPersonProfile = {
@@ -176,7 +155,7 @@ const aboutPersonProfile = {
 };
 
 /**
- * Build the per-language @graph for /about + /sobre-mi.
+ * Build the @graph for /about.
  * Includes ProfilePage + FAQPage so AI crawlers see FAQ schema in SSR'd HTML
  * (no longer requires JS execution / useEffect).
  */
@@ -206,15 +185,11 @@ interface AboutPageData {
 
 const aboutPages: AboutPageData[] = [];
 
-for (const lang of ['es', 'en'] as const) {
+{
+  const lang = 'en' as const;
   const t = aboutContent[lang];
   const slug = t.slug;
-  const altSlug = t.altSlug;
   const url = `https://cv.brentbeckwith.com/${slug}`;
-  const altUrl = `https://cv.brentbeckwith.com/${altSlug}`;
-  const altLang = lang === 'es' ? 'en' : 'es';
-  const ogLocale = lang === 'es' ? 'es_ES' : 'en_US';
-  const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
 
   let renderedHtml: string;
   try {
@@ -235,27 +210,25 @@ for (const lang of ['es', 'en'] as const) {
     renderedHtml = '';
   }
 
-  const hreflangLinks = `<link rel="alternate" hreflang="${lang}" href="${url}" /><link rel="alternate" hreflang="${altLang}" href="${altUrl}" /><link rel="alternate" hreflang="x-default" href="https://cv.brentbeckwith.com/sobre-mi" />`;
-
   let result = indexHtml
     .replace('<div id="root"></div>', `<div id="root">${renderedHtml}</div>`)
-    .replace('<html lang="es" class="dark">', `<html lang="${lang}" class="dark">`)
+    .replace('<html lang="es" class="dark">', '<html lang="en" class="dark">')
     .replace(/<title>[^<]*<\/title>/, `<title>${esc(t.seo.title)}</title>`)
     .replace(/<meta name="title" content="[^"]*" \/>/, `<meta name="title" content="${esc(t.seo.title)}" />`)
     .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${esc(t.seo.description)}" />`)
     .replace(/<link rel="alternate" hreflang="[^"]*" href="[^"]*" \/>\s*/g, '')
-    .replace(/<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${url}" />${hreflangLinks}`)
+    .replace(/<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${url}" />`)
     .replace(/<meta property="og:type" content="[^"]*" \/>/, '<meta property="og:type" content="profile" />')
     .replace(/<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${url}" />`)
     .replace(/<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${esc(t.seo.title)}" />`)
     .replace(/<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${esc(t.seo.description)}" />`)
-    .replace(/<meta property="og:locale" content="es_ES" \/>/, `<meta property="og:locale" content="${ogLocale}" />`)
-    .replace(/<meta property="og:locale:alternate" content="en_US" \/>/, `<meta property="og:locale:alternate" content="${ogLocaleAlt}" />`)
+    .replace(/<meta property="og:locale" content="es_ES" \/>/, '<meta property="og:locale" content="en_US" />')
+    .replace(/<meta property="og:locale:alternate" content="en_US" \/>/, '')
     .replace(/<meta name="twitter:url" content="[^"]*" \/>/, `<meta name="twitter:url" content="${url}" />`)
     .replace(/<meta name="twitter:title" content="[^"]*" \/>/, `<meta name="twitter:title" content="${esc(t.seo.title)}" />`)
     .replace(/<meta name="twitter:description" content="[^"]*" \/>/, `<meta name="twitter:description" content="${esc(t.seo.description)}" />`);
 
-  // Build per-language @graph (ProfilePage + FAQPage) and inject as SSR JSON-LD
+  // Build @graph (ProfilePage + FAQPage) and inject as SSR JSON-LD
   const aboutJsonLd = buildAboutJsonLd(lang, url, t.faq);
   const aboutJsonLdScript = `<script type="application/ld+json">\n${JSON.stringify(aboutJsonLd, null, 2)}\n</script>`;
 
@@ -392,14 +365,9 @@ for (const config of articleRegistry) {
     continue;
   }
 
-  const seen = new Set<string>();
-  for (const lang of ['es', 'en'] as const) {
-    const slug = config.slugs[lang];
-    if (seen.has(slug)) continue; // same slug for both languages
-    seen.add(slug);
-    const html = buildArticlePage(config, lang, ArticleComponent);
-    articlePages.push({ slug, html });
-  }
+  const slug = config.slugs.en;
+  const html = buildArticlePage(config, 'en', ArticleComponent);
+  articlePages.push({ slug, html });
 }
 
 // ---------------------------------------------------------------------------
@@ -454,7 +422,7 @@ async function writePage(html: string, outputPath: string, label: string) {
   mkdirSync(dir, { recursive: true });
   // Article pages live in dist/<slug>/index.html, NOT dist/index.html or dist/en/index.html
   const isArticle = /\/dist\/[^/]+\/index\.html$/.test(outputPath)
-    && !/\/dist\/(en|privacy|privacidad)\/index\.html$/.test(outputPath);
+    && !/\/dist\/(en|privacy)\/index\.html$/.test(outputPath);
   const pre = swapLcpPreload(html, isArticle);
   try {
     const processed = dedupePreloads(await critters.process(pre));
@@ -467,14 +435,13 @@ async function writePage(html: string, outputPath: string, label: string) {
 }
 
 // ---------------------------------------------------------------------------
-// Privacy pages — /privacidad (ES) + /privacy (EN)
+// Privacy page — /privacy
 // ---------------------------------------------------------------------------
 const privacyPages: { slug: string; html: string }[] = [];
 
-for (const [lang, slug, altSlug] of [['es', 'privacidad', 'privacy'], ['en', 'privacy', 'privacidad']] as const) {
+{
+  const slug = 'privacy';
   const url = `https://cv.brentbeckwith.com/${slug}`;
-  const altUrl = `https://cv.brentbeckwith.com/${altSlug}`;
-  const altLang = lang === 'es' ? 'en' : 'es';
   const title = 'Privacy Policy | brentbeckwith.com';
   const description = 'Privacy policy for brentbeckwith.com. How chatbot and website data is collected and used.';
 
@@ -486,7 +453,7 @@ for (const [lang, slug, altSlug] of [['es', 'privacidad', 'privacy'], ['en', 'pr
         <div>
           <Suspense fallback={null}>
             <Routes>
-              <Route path={`/${slug}`} element={<PrivacyPolicy lang={lang} />} />
+              <Route path={`/${slug}`} element={<PrivacyPolicy lang="en" />} />
             </Routes>
           </Suspense>
         </div>
@@ -497,22 +464,20 @@ for (const [lang, slug, altSlug] of [['es', 'privacidad', 'privacy'], ['en', 'pr
     renderedHtml = '';
   }
 
-  const hreflangLinks = `<link rel="alternate" hreflang="${lang}" href="${url}" /><link rel="alternate" hreflang="${altLang}" href="${altUrl}" /><link rel="alternate" hreflang="x-default" href="https://cv.brentbeckwith.com/privacidad" />`;
-
   let result = indexHtml
     .replace('<div id="root"></div>', `<div id="root">${renderedHtml}</div>`)
-    .replace('<html lang="es" class="dark">', `<html lang="${lang}" class="dark">`)
+    .replace('<html lang="es" class="dark">', '<html lang="en" class="dark">')
     .replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`)
     .replace(/<meta name="title" content="[^"]*" \/>/, `<meta name="title" content="${esc(title)}" />`)
     .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${esc(description)}" />`)
     .replace(/<meta name="robots" content="[^"]*" \/>/, '<meta name="robots" content="noindex, nofollow" />')
     .replace(/<link rel="alternate" hreflang="[^"]*" href="[^"]*" \/>\s*/g, '')
-    .replace(/<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${url}" />${hreflangLinks}`)
+    .replace(/<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${url}" />`)
     .replace(/<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${url}" />`)
     .replace(/<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${esc(title)}" />`)
     .replace(/<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${esc(description)}" />`)
-    .replace(/<meta property="og:locale" content="es_ES" \/>/, `<meta property="og:locale" content="${lang === 'es' ? 'es_ES' : 'en_US'}" />`)
-    .replace(/<meta property="og:locale:alternate" content="en_US" \/>/, `<meta property="og:locale:alternate" content="${lang === 'es' ? 'en_US' : 'es_ES'}" />`)
+    .replace(/<meta property="og:locale" content="es_ES" \/>/, '<meta property="og:locale" content="en_US" />')
+    .replace(/<meta property="og:locale:alternate" content="en_US" \/>/, '')
     .replace(/<meta name="twitter:url" content="[^"]*" \/>/, `<meta name="twitter:url" content="${url}" />`)
     .replace(/<meta name="twitter:title" content="[^"]*" \/>/, `<meta name="twitter:title" content="${esc(title)}" />`)
     .replace(/<meta name="twitter:description" content="[^"]*" \/>/, `<meta name="twitter:description" content="${esc(description)}" />`);
@@ -524,8 +489,8 @@ for (const [lang, slug, altSlug] of [['es', 'privacidad', 'privacy'], ['en', 'pr
 }
 
 async function inlineCriticalCSS() {
-  // Home pages
-  await writePage(injectedEs, indexPath, 'ES: dist/index.html updated');
+  // Home page
+  await writePage(enPage, indexPath, 'EN: dist/index.html updated');
   await writePage(enPage, resolve(distDir, 'en', 'index.html'), 'EN: dist/en/index.html created');
 
   // About pages
@@ -584,8 +549,7 @@ function validateHydrationStructure(html: string, label: string) {
   }
 }
 
-// Validate home pages
-validateHydrationStructure(injectedEs, 'home-es');
+// Validate home page
 validateHydrationStructure(enPage, 'home-en');
 
 // Validate about pages

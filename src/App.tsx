@@ -273,12 +273,11 @@ function useTypewriterRotation(roles: readonly string[], { typeSpeed = 80, delet
 }
 
 const HOME_TOC_SECTIONS = [
-  { id: 'experience', es: 'Experiencia', en: 'Experience' },
-  { id: 'projects', es: 'Proyectos', en: 'Projects' },
-  // { id: 'speaking', es: 'Compartiendo', en: 'Sharing' },
-  { id: 'education', es: 'Formación', en: 'Education' },
-  { id: 'tech', es: 'Skills & Stack', en: 'Skills & Stack' },
-  { id: 'contact', es: 'Contacto', en: 'Contact' },
+  { id: 'experience', en: 'Experience' },
+  { id: 'projects', en: 'Projects' },
+  { id: 'education', en: 'Education' },
+  { id: 'tech', en: 'Skills & Stack' },
+  { id: 'contact', en: 'Contact' },
 ] as const
 
 function HomeToc({ lang }: { lang: Lang }) {
@@ -1449,7 +1448,7 @@ function App() {
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-primary focus:text-primary-foreground focus:font-medium focus:shadow-lg"
       >
-        {lang === 'en' ? 'Skip to content' : 'Saltar al contenido'}
+        Skip to content
       </a>
 
       <HomeToc lang={lang} />
