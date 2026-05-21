@@ -25,11 +25,11 @@ export const translations = {
     role: "",
     story: {
       context:
-        "+Over a decade+ of supporting web servers, apps, and desktops.",
+        "+Over a decade+ of migration, rollout, and utility projects alongside web server, app, and desktop support.",
       reflections: ["Almost but not quite full stack experience.", "I know how to script, what if I learned to code?"],
       hookParagraphs: [
         [
-          "A career of broad experiences, filled with servers, networks, applications, concepts, projects, and communications has found the +final piece+.",
+          "A career of broad experiences filled with servers, networks, applications, concepts, projects, and communications has found the +final piece+.",
         ],
       ],
       why: "An experienced generalist with AI isn't just a jack of all trades anymore. Breadth becomes the map. Depth is researched, planned, and on-demand.",
@@ -71,7 +71,7 @@ export const translations = {
       p1Highlight: "enterprise IT",
       p1End:
         ", from desktop support to Linux administration, security operations, and full-stack LAMP development. Led hosting migrations for five major ISP acquisitions covering 5,000+ domains with zero data loss. Built Python and shell scripts that cut manual processes by 70%.",
-      p2: "Support professional with an analyst's instinct.",
+      p2: "Analyst's toolset with support professional's instinct.",
       p2Highlight: "",
       p2End: " Diagnosing problems, querying data, and building the documentation others rely on.",
       cards: [
@@ -187,14 +187,6 @@ export const translations = {
           link: "github.com/bbeckwith-dev/whisper-notes",
         },
         {
-          title: "CCsimulator",
-          badge: "Work in Progress",
-          badgeBuilding: "",
-          desc: "Browser-based covered call options simulator. Implements Black-Scholes European call pricing with all five Greeks, geometric Brownian motion for price simulation, real-time risk gauges, payoff diagrams, and 7 preset market scenarios. Single-file vanilla JS (~1,700 lines), no build step.",
-          tech: ["JavaScript", "Chart.js", "Black-Scholes", "HTML/CSS"],
-          link: "github.com/bbeckwith-dev/CCsimulator",
-        },
-        {
           title: "This Portfolio",
           badge: "Adapted & Extended",
           badgeBuilding: "",
@@ -265,7 +257,7 @@ export const translations = {
         desc: "Maintained the CSOC's internal web applications, databases, and backup systems. The closest I've come to a full-stack development role, maintaining and extending LAMP applications while working inside a security operations team. Notable scripts affected hundreds of network devices and checked IP reputation at scale.",
         highlights: [
           "Maintained CSOC warehousing LAMP website, wiki, and servers, the applications the security team relied on daily",
-          "Maintained daily backups of CSOC websites and databases to AWS servers",
+          "Designed daily backups of CSOC websites and databases to AWS servers",
           "Consulted with CSOC management on new site features, then built and deployed them",
           "Crafted MySQL queries to pull structured, actionable data for management decision-making",
           "Contributed to migration coordination between engineers and specialists",
@@ -303,7 +295,6 @@ export const translations = {
               "Completed hosting and mail-filtering platform migrations for 500+ customers and authored the support documentation",
               "First-response application support for 30+ company-designed customer websites and tools",
               "Rotated system upgrade, on-call, and maintenance duties across 30+ servers and NFS storage",
-              "Trusted with root access to the entire company technology stack",
               "Earned Q-Excellence award, singular recognition out of 600+ employees",
             ],
           },
