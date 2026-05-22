@@ -1,15 +1,15 @@
 /**
  * LLM-as-Judge Batch Evaluator
  *
- * Este script obtiene trazas recientes de Langfuse y las evalúa con Claude Haiku.
- * Es el patrón estándar en LLMOps: evaluación asíncrona en batch.
+ * This script fetches recent traces from Langfuse and evaluates them with Claude Haiku.
+ * This is the standard LLMOps pattern: asynchronous batch evaluation.
  *
- * Uso:
- *   npx tsx scripts/evaluate-traces.ts           # Evalúa últimas 24h
- *   npx tsx scripts/evaluate-traces.ts --hours 1 # Evalúa última hora
+ * Usage:
+ *   npx tsx scripts/evaluate-traces.ts           # Evaluate last 24h
+ *   npx tsx scripts/evaluate-traces.ts --hours 1 # Evaluate last hour
  *
- * En producción esto correría como:
- *   - Cron job cada hora
+ * In production this would run as:
+ *   - Hourly cron job
  *   - GitHub Action scheduled
  *   - Vercel Cron
  */
@@ -31,7 +31,7 @@ const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY!,
 })
 
-// Evaluator prompt - esto es lo que hace un LLM-as-Judge
+// Evaluator prompt — this is what the LLM-as-Judge does
 const EVALUATOR_PROMPT = `You are an evaluator for a chatbot that represents Brent Beckwith, a SOC Analyst based in Madison, Ohio.
 
 <public_info>

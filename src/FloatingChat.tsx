@@ -206,14 +206,14 @@ export default function FloatingChat(_props: FloatingChatProps) {
     });
   }, [messages, isLoading, isStreaming, isOpen]);
 
-  // Focus en input al abrir
+  // Focus input when opening
   useEffect(() => {
     if (isOpen && !isMobile && mode === 'text') {
       inputRef.current?.focus();
     }
   }, [isOpen, isMobile, mode]);
 
-  // Escuchar evento global para abrir chat desde otros componentes
+  // Listen for global event to open chat from other components
   useEffect(() => {
     const handleOpenChat = () => setIsOpen(true);
     window.addEventListener('openChat', handleOpenChat);
@@ -229,7 +229,7 @@ export default function FloatingChat(_props: FloatingChatProps) {
       document.body.style.width = '100%';
       document.body.style.top = `-${scrollY}px`;
 
-      // Prevenir cualquier scroll del body
+      // Prevent any body scroll
       const preventScroll = (e: TouchEvent) => {
         if (!(e.target as HTMLElement).closest('.custom-scrollbar')) {
           e.preventDefault();
@@ -543,7 +543,7 @@ export default function FloatingChat(_props: FloatingChatProps) {
 
   return (
     <>
-      {/* Chat Button - avatar con animación sutil */}
+      {/* Chat Button */}
       <motion.button
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -613,7 +613,7 @@ export default function FloatingChat(_props: FloatingChatProps) {
         </AnimatePresence>
       </motion.button>
 
-      {/* Chat Panel - Fullscreen en móvil, flotante en desktop */}
+      {/* Chat Panel - fullscreen on mobile, floating on desktop */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -631,7 +631,7 @@ export default function FloatingChat(_props: FloatingChatProps) {
                 : 'bottom-24 right-6 w-[360px] max-w-[calc(100vw-3rem)] h-[500px] max-h-[calc(100vh-8rem)] rounded-2xl border overflow-hidden'
             }`}
           >
-            {/* Header - con avatar y botón de cerrar en móvil */}
+            {/* Header - with avatar and close button on mobile */}
             <div
               className="p-4 border-b border-border bg-gradient-theme-10 flex items-center justify-between"
               style={
@@ -824,7 +824,7 @@ export default function FloatingChat(_props: FloatingChatProps) {
                     ),
                   )}
 
-                  {/* Quick Prompts - animación estilo Story, colores originales */}
+                  {/* Quick Prompts - Story-style animation, original colors */}
                   {showPrompts && !isLoading && (
                     <motion.div
                       initial={{ opacity: 0, y: 15 }}

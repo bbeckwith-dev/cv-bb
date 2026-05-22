@@ -56,7 +56,7 @@ function getTerminalSize(): { cols: number; rows: number } {
 
 function formatDate(isoDate: string): string {
   const date = new Date(isoDate);
-  return date.toLocaleString('es-ES', {
+  return date.toLocaleString('en-US', {
     day: '2-digit',
     month: 'short',
     hour: '2-digit',
@@ -67,7 +67,6 @@ function formatDate(isoDate: string): string {
 function formatTags(tags: string[]): string {
   return tags.map(tag => {
     if (tag === 'jailbreak-attempt') return `${BG_RED}${WHITE} ⚠ JAILBREAK ${RESET}`;
-    if (tag === 'es') return '🇪🇸';
     if (tag === 'en') return '🇬🇧';
     if (tag.startsWith('topic:')) return `${DIM}#${tag.replace('topic:', '')}${RESET}`;
     return `${DIM}${tag}${RESET}`;
@@ -150,7 +149,6 @@ async function fetchTraceDetail(traceId: string): Promise<Trace | null> {
 function formatTagsPlain(tags: string[]): string {
   return tags.map(tag => {
     if (tag === 'jailbreak-attempt') return '[⚠ JAILBREAK]';
-    if (tag === 'es') return '[ES]';
     if (tag === 'en') return '[EN]';
     if (tag.startsWith('topic:')) return `#${tag.replace('topic:', '')}`;
     return tag;
@@ -223,9 +221,9 @@ async function exportAllChats(traces: Trace[], traceDetails: (Trace | null)[], j
     '║          CONVERSATION HISTORY - BRENT BOT        ║',
     '╚══════════════════════════════════════════════════════════╝',
     '',
-    `Exportado: ${now.toLocaleString('es-ES')}`,
-    `Período: últimos ${days} día(s)${jailbreakOnly ? ' (solo jailbreaks)' : ''}`,
-    `Total: ${traces.length} conversaciones`,
+    `Exported: ${now.toLocaleString('en-US')}`,
+    `Period: last ${days} day(s)${jailbreakOnly ? ' (jailbreaks only)' : ''}`,
+    `Total: ${traces.length} conversations`,
     `Jailbreaks: ${traces.filter(t => t.tags.includes('jailbreak-attempt')).length}`,
     '',
   ].join('\n');
@@ -351,16 +349,16 @@ async function main() {
 
   if (traces.length === 0) {
     process.stdout.write(SHOW_CURSOR);
-    console.log(`${YELLOW}No hay conversaciones${jailbreakOnly ? ' de jailbreak' : ''} en los últimos ${days} día(s)${RESET}`);
+    console.log(`${YELLOW}No conversations${jailbreakOnly ? ' with jailbreak attempts' : ''} in the last ${days} day(s)${RESET}`);
     process.exit(0);
   }
 
   // Fetch all trace details once
-  process.stdout.write(`${DIM}Descargando ${traces.length} conversaciones...${RESET}\n`);
+  process.stdout.write(`${DIM}Downloading ${traces.length} conversations...${RESET}\n`);
   traceDetails = await fetchAllTraceDetails(traces);
 
   // Export all chats to txt (reusing cached details)
-  process.stdout.write(`${DIM}Exportando a logs/...${RESET}\n`);
+  process.stdout.write(`${DIM}Exporting to logs/...${RESET}\n`);
   const exportPath = await exportAllChats(traces, traceDetails, jailbreakOnly, days);
   process.stdout.write(`${GREEN}✅ Guardado: ${exportPath}${RESET}\n`);
 

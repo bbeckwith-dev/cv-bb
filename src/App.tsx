@@ -475,23 +475,23 @@ function AnimatedSection({ children, className = '', delay = 0 }: { children: Re
   )
 }
 
-// Parsea texto con marcadores de highlight:
-// *texto* = Tipo B: gradiente durante typewriter (frase activa), luego normal
-// +texto+ = Tipo C: normal durante typewriter, gradiente en encendido final
-// **texto** = gradiente siempre (permanent) + slow typing
+// Parse text with highlight markers:
+// *text* = Type B: gradient during typewriter (active phrase), then normal
+// +text+ = Type C: normal during typewriter, gradient on final reveal
+// **text** = always gradient (permanent) + slow typing
 type ParsedHighlights = {
   clean: string
   ranges: [number, number][]          // backward compat
-  typewriterRanges: [number, number][] // *texto* - Tipo B: gradiente solo durante typewriter
-  finalRanges: [number, number][]      // +texto+ - Tipo C: gradiente solo en encendido final
-  permanentRanges: [number, number][]  // **texto** - siempre gradiente
-  slowRanges: [number, number][]       // para typing lento
+  typewriterRanges: [number, number][] // *text* - Type B: gradient only during typewriter
+  finalRanges: [number, number][]      // +text+ - Type C: gradient only on final reveal
+  permanentRanges: [number, number][]  // **text** - always gradient
+  slowRanges: [number, number][]       // for slow typing
 }
 
 function parseHighlights(text: string): ParsedHighlights {
-  const typewriterRanges: [number, number][] = []  // Tipo B: *texto*
-  const finalRanges: [number, number][] = []       // Tipo C: +texto+
-  const permanentRanges: [number, number][] = []   // **texto**
+  const typewriterRanges: [number, number][] = []
+  const finalRanges: [number, number][] = []
+  const permanentRanges: [number, number][] = []
   const slowRanges: [number, number][] = []
   let clean = ''
   let i = 0
@@ -509,14 +509,14 @@ function parseHighlights(text: string): ParsedHighlights {
       slowRanges.push([start, clean.length])
       i += 2
     }
-    // Check for + (Tipo C: gradiente solo en encendido final)
-    // Si +digit (ej: +15), mostrar como "15+" (convención internacional)
+    // Check for + (Type C: gradient only on final reveal)
+    // If +digit (e.g. +15), display as "15+" (international convention)
     else if (text[i] === '+') {
       const nextIsDigit = /\d/.test(text[i + 1] || '')
       const start = clean.length
       i++ // skip opening +
       if (nextIsDigit) {
-        // Leer dígitos primero, luego añadir + después (15+ en vez de +15)
+        // Read digits first, then append + after (15+ instead of +15)
         while (i < text.length && /\d/.test(text[i])) {
           clean += text[i]
           i++
@@ -530,7 +530,7 @@ function parseHighlights(text: string): ParsedHighlights {
       finalRanges.push([start, clean.length])
       i++ // skip closing +
     }
-    // Check for single * (Tipo B: gradiente solo durante typewriter)
+    // Check for single * (Type B: gradient only during typewriter)
     else if (text[i] === '*') {
       const start = clean.length
       i++
@@ -551,22 +551,22 @@ function parseHighlights(text: string): ParsedHighlights {
   return { clean, ranges, typewriterRanges, finalRanges, permanentRanges, slowRanges }
 }
 
-// Renderiza texto con rangos destacados y soporte para transición
-// Tipos de highlight:
-// - typewriter (Tipo B): gradiente durante typewriter, luego normal
-// - final (Tipo C): normal durante typewriter, gradiente en encendido final
-// - permanent: siempre gradiente
+// Render text with highlighted ranges and transition support
+// Highlight types:
+// - typewriter (Type B): gradient during typewriter, then normal
+// - final (Type C): normal during typewriter, gradient on final reveal
+// - permanent: always gradient
 function renderHighlightedText(
   text: string,
   _ranges: [number, number][],  // kept for API compatibility
   options?: {
-    dimmed?: boolean           // texto atenuado (después del typewriter)
-    finalReveal?: boolean      // Tipo C se enciende con gradiente
-    revealed?: boolean         // resto del texto se enciende
-    typewriterRanges?: [number, number][]  // Tipo B
-    finalRanges?: [number, number][]       // Tipo C
+    dimmed?: boolean           // text dimmed (after typewriter)
+    finalReveal?: boolean      // Type C lights up with gradient
+    revealed?: boolean         // rest of text lights up
+    typewriterRanges?: [number, number][]  // Type B
+    finalRanges?: [number, number][]       // Type C
     permanentRanges?: [number, number][]
-    highlightsActive?: boolean // gradiente activo durante typewriter
+    highlightsActive?: boolean // gradient active during typewriter
   }
 ) {
   const {
@@ -593,13 +593,13 @@ function renderHighlightedText(
     for (let i = start; i < end && i < text.length; i++) charTypes[i] = 'permanent'
   })
 
-  // Opacity states - SEPARADOS para cada tipo
-  // Texto normal y Tipo B: atenuados, luego quedan en segundo plano (opacity-50)
+  // Opacity states per type
+  // Normal text and Type B: dimmed, then stay as background (opacity-50)
   const textOpacity = dimmed ? (revealed ? 'opacity-50' : 'opacity-15') : 'opacity-100'
-  // Tipo C: atenuados hasta que finalReveal=true (se encienden ANTES que el resto)
+  // Type C: dimmed until finalReveal=true (light up BEFORE the rest)
   const isFinalLowOpacity = dimmed && !finalReveal
 
-  // UN SOLO TIMING para TODO - sincronización perfecta
+  // Single timing for all transitions
   const timing = 'duration-[2500ms] ease-in-out'
 
   // If no special ranges, render as plain text
@@ -672,17 +672,17 @@ function renderHighlightedText(
             </span>
           )
         } else if (currentType === 'typewriter') {
-          // Tipo B: gradiente SOLO durante typewriter (highlightsActive), luego texto normal
+          // Type B: gradient ONLY during typewriter (highlightsActive), then normal text
           const showGradient = highlightsActive
           pushHighlightWords(segment, currentStart, showGradient,
             showGradient ? 'opacity-0' : textOpacity)
         } else if (currentType === 'final') {
-          // Tipo C: normal durante typewriter, gradiente en encendido final (finalReveal)
+          // Type C: normal during typewriter, gradient on final reveal (finalReveal)
           const showGradient = finalReveal
           pushHighlightWords(segment, currentStart, showGradient,
             showGradient ? 'opacity-0' : isFinalLowOpacity ? 'opacity-15' : 'opacity-100')
         } else {
-          // permanent: siempre gradiente (mientras no esté revealed)
+          // permanent: always gradient (until revealed)
           const showGradient = !revealed
           pushHighlightWords(segment, currentStart, showGradient,
             showGradient ? 'opacity-0' : 'opacity-100')
@@ -696,7 +696,7 @@ function renderHighlightedText(
   return parts
 }
 
-// Typewriter reflexivo con fases: contexto → reflexiones (se borran) → hook final
+// Reflective typewriter with phases: context → reflections (deleted) → final hook
 type Phase = 'idle' | 'context' | 'pause-after-context' | 'reflection' | 'pause-before-delete' | 'deleting' | 'hook' | 'complete'
 
 type TypewriterState = {
@@ -1076,7 +1076,7 @@ function ReflectiveTypewriter({
               typewriterRanges: parsedContext.typewriterRanges,
               finalRanges: parsedContext.finalRanges,
               permanentRanges: parsedContext.permanentRanges,
-              highlightsActive: true, // gradiente activo durante typewriter del context
+              highlightsActive: true, // gradient active during context typewriter
             })}
             {showCursor && <span className="ml-0.5 inline-block text-primary" style={{ animation: 'blink 0.6s step-end infinite' }}>|</span>}
           </>
@@ -1089,7 +1089,7 @@ function ReflectiveTypewriter({
               typewriterRanges: parsedContext.typewriterRanges,
               finalRanges: parsedContext.finalRanges,
               permanentRanges: parsedContext.permanentRanges,
-              highlightsActive: false, // ya no estamos en el context, gradiente apagado
+              highlightsActive: false, // no longer in context, gradient off
             })}
             {phase === 'pause-after-context' && (
               <span className="ml-0.5 inline-block text-primary" style={{ animation: 'blink 0.6s step-end infinite' }}>|</span>
@@ -1120,18 +1120,17 @@ function ReflectiveTypewriter({
               const isCurrentLine = pIdx === currentHookParagraph && lIdx === currentHookLine
               const isCompleted = completedHookLines[pIdx]?.[lIdx] !== undefined
 
-              // Unificar renderizado para permitir transiciones CSS suaves
-              // El texto a mostrar: completado > actual (displayText) > vacío
+              // Text to show: completed > current (displayText) > empty
               const textToShow = isCompleted
                 ? completedHookLines[pIdx][lIdx]
                 : (isCurrentLine && phase === 'hook')
                   ? displayText
                   : ''
 
-              // Tipo B highlights activos SOLO mientras se escribe esta línea
+              // Type B highlights active only while typing this line
               const highlightsActive = isCurrentLine && phase === 'hook'
 
-              // Solo renderizar si hay texto o es la línea actual
+              // Only render if there's text or it's the current line
               if (!textToShow && !isCurrentLine) return null
 
               return (
@@ -1159,12 +1158,12 @@ function ReflectiveTypewriter({
   )
 }
 
-// Sección de historia con typewriter y animaciones
+// Story section with typewriter and animations
 function StorySection({ t }: { t: (typeof translations)['en'] }) {
   const [typewriterComplete, setTypewriterComplete] = useState(false)
   const [textDimmed, setTextDimmed] = useState(false)
-  const [finalReveal, setFinalReveal] = useState(false)  // Tipo C se enciende con gradiente
-  const [textRevealed, setTextRevealed] = useState(false) // Resto del texto se enciende
+  const [finalReveal, setFinalReveal] = useState(false)
+  const [textRevealed, setTextRevealed] = useState(false)
   const [animationStarted, setAnimationStarted] = useState(false)
   const [scrollSkipped, setScrollSkipped] = useState(false)
   const skipRef = useRef<(() => void) | null>(null)
@@ -1189,7 +1188,7 @@ function StorySection({ t }: { t: (typeof translations)['en'] }) {
     }
   }, [t])
 
-  // Transition sequence: dim → finalReveal (Tipo C gradient) → revealed (rest)
+  // Transition sequence: dim → finalReveal (Type C gradient) → revealed (rest)
   const sequenceStartedRef = useRef(false)
 
   useEffect(() => {
@@ -1201,23 +1200,23 @@ function StorySection({ t }: { t: (typeof translations)['en'] }) {
     if (!typewriterComplete || sequenceStartedRef.current) return
     sequenceStartedRef.current = true
 
-    // Secuencia de animación post-typewriter:
-    // 1. Esperar a que Tipo B (Construir) termine de desvanecerse (~2.5s transición)
-    // 2. Dimmed: todo se atenúa
-    // 3. FinalReveal: Tipo C se enciende con gradiente (+15 años + sistemas)
-    // 4. Revealed: resto del texto se enciende, Tipo C MANTIENE gradiente
+    // Post-typewriter animation sequence:
+    // 1. Wait for Type B gradient to fade out (~2.5s transition)
+    // 2. Dimmed: everything dims
+    // 3. FinalReveal: Type C lights up with gradient
+    // 4. Revealed: rest of text lights up, Type C keeps gradient
 
-    // Step 1: Dim everything (2500ms - espera a que Tipo B haya perdido gradiente)
+    // Step 1: Dim everything (2500ms - wait for Type B gradient to fade)
     const dimTimer = setTimeout(() => {
       setTextDimmed(true)
     }, 2500)
 
-    // Step 2: Tipo C se enciende con gradiente (4500ms - contenido adicional ya visible)
+    // Step 2: Type C lights up with gradient (4500ms)
     const finalRevealTimer = setTimeout(() => {
       setFinalReveal(true)
     }, 4500)
 
-    // Step 3: Resto del texto se enciende (8000ms - Tipo C tuvo tiempo de brillar)
+    // Step 3: Rest of text lights up (8000ms - Type C had time to shine)
     const revealTimer = setTimeout(() => {
       setTextRevealed(true)
     }, 8000)
@@ -1229,7 +1228,7 @@ function StorySection({ t }: { t: (typeof translations)['en'] }) {
     }
   }, [typewriterComplete])
 
-  // Scroll-past-as-skip: si el usuario scrollea pasando la sección, auto-skip
+  // Scroll-past-as-skip: if user scrolls past the section, auto-skip
   useEffect(() => {
     if (typewriterComplete) return
     const section = sectionRef.current
@@ -1250,14 +1249,14 @@ function StorySection({ t }: { t: (typeof translations)['en'] }) {
 
   return (
     <section ref={sectionRef} id="about" className="relative py-16 md:py-24">
-      {/* Vignette horizontal: tapa puntos en el centro, se ven en los bordes */}
+      {/* Horizontal vignette: covers dots in center, visible at edges */}
       <div className="absolute inset-0 pointer-events-none" style={{
         background: 'linear-gradient(90deg, transparent 0%, hsl(var(--background)) 25%, hsl(var(--background)) 75%, transparent 100%)',
       }} />
-      {/* Fade vertical: transparente arriba → fondo sólido abajo */}
+      {/* Vertical fade: transparent top → solid background bottom */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background pointer-events-none" />
       <div className="relative z-10 max-w-5xl mx-auto px-6">
-        {/* Hook emocional con typewriter reflexivo + botón skip */}
+        {/* Reflective typewriter + skip button */}
         <div className="relative pb-12">
           <ReflectiveTypewriter
             context={t.story.context}
@@ -1272,7 +1271,7 @@ function StorySection({ t }: { t: (typeof translations)['en'] }) {
             onStart={() => setAnimationStarted(true)}
           />
 
-          {/* Botón skip — posición absoluta debajo del texto, en el padding reservado */}
+          {/* Skip button — absolute positioned below text */}
           <AnimatePresence>
             {animationStarted && !typewriterComplete && (
               <motion.button
@@ -1289,7 +1288,7 @@ function StorySection({ t }: { t: (typeof translations)['en'] }) {
           </AnimatePresence>
         </div>
 
-        {/* Contenido que aparece después del typewriter - expansión suave (instantánea si scroll-skip) */}
+        {/* Content revealed after typewriter — smooth expand (instant if scroll-skipped) */}
         <motion.div
           initial={{ height: 0, opacity: 0 }}
           animate={typewriterComplete
@@ -1343,7 +1342,7 @@ function StorySection({ t }: { t: (typeof translations)['en'] }) {
             })}
           </div>
 
-          {/* Burbujas de navegación - delays sincronizados */}
+          {/* Navigation bubbles */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={typewriterComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
@@ -1520,10 +1519,10 @@ function App() {
         </div>
       </header>
 
-      {/* Summary - Con storytelling integrado */}
+      {/* Summary with storytelling */}
       <StorySection t={t} />
 
-      {/* Experience - Con preámbulo de competencias */}
+      {/* Experience - with competencies preamble */}
       <section id="experience" className="py-16 md:py-24 bg-muted/30" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 2000px' }}>
         <div className="max-w-5xl mx-auto px-6">
           <AnimatedSection>
@@ -1535,7 +1534,7 @@ function App() {
             </h2>
           </AnimatedSection>
 
-          {/* Preámbulo: Cómo trabajo + Competencias */}
+          {/* Preamble: How I work + Core competencies */}
           <AnimatedSection delay={0.1}>
             <div className="mb-12 p-6 rounded-2xl bg-card/50">
               <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-6">
@@ -2061,7 +2060,7 @@ function App() {
 
       {/* Footer CTA */}
       <footer id="contact" className="relative py-16 md:py-24">
-        {/* Vignette horizontal — zona limpia central, puntos en bordes */}
+        {/* Horizontal vignette — clean center, dots at edges */}
         <div className="absolute inset-0 pointer-events-none" style={{
           background: 'linear-gradient(90deg, transparent 0%, hsl(var(--background)) 25%, hsl(var(--background)) 75%, transparent 100%)',
         }} />
