@@ -6,7 +6,7 @@
 
 ## Context
 
-Building a portfolio/CV site that doubles as a technical showcase. The site needs to demonstrate engineering maturity while remaining maintainable by a single developer. Key requirements: interactive AI chatbot, case study articles with rich content, English-only, pre-rendered for SEO, fast time-to-interactive.
+Adopting and extending a production-grade portfolio with 49 evals, edge functions, LLMOps observability, a multi-layer security chatbot, and prerender scripts. The work mirrors enterprise codebase onboarding: reading someone else's architecture, understanding the design decisions, tracing dependencies, and making confident changes at scale without breaking things. Key requirements: interactive AI chatbot, case study articles with rich content, English-only, pre-rendered for SEO, fast time-to-interactive.
 
 ## Decision
 
@@ -28,7 +28,7 @@ Building a portfolio/CV site that doubles as a technical showcase. The site need
 | Alternative | Why rejected |
 |-------------|-------------|
 | Next.js | Over-engineered for a portfolio; RSC complexity not justified for static + 1 API route |
-| Astro | Better for pure content sites, but React interactivity (chat, animations) is core to the showcase |
+| Astro | Better for pure content sites, but React interactivity (chat, animations) is central to the portfolio |
 | Vue/Svelte | Smaller ecosystem for the specific libraries needed (Motion, Radix) |
 | OpenAI API | Anthropic models showed better persona consistency and safety guardrails in testing |
 | Cloudflare Workers | Vercel's DX and preview deploys outweighed Workers' edge advantage for a solo project |

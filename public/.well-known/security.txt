@@ -11,5 +11,5 @@ Expires: 2027-05-20T00:00:00.000Z
 # - Prompt injection defense (6-layer: keyword detection, canary tokens, fingerprinting, anti-extraction, online safety scoring, adversarial red team)
 # - Rate limiting on API endpoints
 # - No user data stored — stateless chat sessions
-# - 71 automated evals including security/jailbreak tests
+# - 49 automated evals including security/jailbreak tests
 # - Weekly adversarial testing with auto-generated attack vectors

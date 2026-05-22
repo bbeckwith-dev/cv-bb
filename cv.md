@@ -7,7 +7,7 @@
 
 ## Professional Summary
 
-SOC analyst and support specialist with deep experience building reliability across enterprise IT — from desktop support to Linux administration, security operations, and full-stack LAMP development. Led hosting migrations for five major ISP acquisitions covering 5,000+ domains with zero data loss. Built Python and shell scripts that cut manual processes by 70%. Maintained critical LAMP applications, MySQL databases, and AWS backup infrastructure. Awarded Q-Excellence recognition (singular award out of 600+ employees) for outstanding performance.
+SOC analyst and support specialist with deep experience building reliability across enterprise IT — from desktop support to Linux administration, security operations, and full-stack LAMP development. Spearheaded hosting migrations for five major ISP acquisitions covering 5,000+ domains with zero data loss. Built Python and shell scripts that cut manual processes by 70%. Maintained critical LAMP applications, MySQL databases, and AWS backup infrastructure. Awarded Q-Excellence recognition (singular award out of 600+ employees) for outstanding performance.
 
 Most recently supported 6,000+ users across 20 states in Microsoft 365/Intune environments. Uses AI tools daily for research, troubleshooting, and process improvement — advocates for thoughtful, human-focused AI adoption.
 
@@ -66,12 +66,12 @@ May 2011 -- Dec 2019
 *Promoted from Norlight Customer Support Engineer after Windstream acquisition. Also held title "Sr Internet Tech Suprt Spec" initially.*
 
 * Linux, web/DNS/email hosting, and email filtering SME for team of 8
-* Led hosting migration efforts for five major ISP acquisitions (Norlight, Nuvox, Paetec, Earthlink, Broadview) -- 5,000+ domains from 60+ servers covering 20+ products
-* Led and coordinated the Domain Services team through four major acquisition migration efforts
+* Spearheaded hosting migration efforts for five major ISP acquisitions (Norlight, Nuvox, Paetec, Earthlink, Broadview) -- 5,000+ domains from 60+ servers covering 20+ products
+* Coordinated the Domain Services team through five major acquisition migration efforts
 * Investigated, harvested, and organized customer data from numerous servers and platforms during acquisitions
 * Composed, organized, and managed migration customer communication campaigns across multiple waves
 * Automated large-scale DNS, email, and website queries for investigative audits
-* Led four product soft rollouts with customer onboards, serving as product SME and escalation point
+* Pioneered four product soft rollouts with customer onboards, serving as product SME and escalation point
 * Saved company over $15,000 monthly through a domain lookup and disable project
 * Created scripts for DNS, email, and web service management -- reducing manual processes by 70%
 * Managed MySQL databases supporting thousands of customer domains

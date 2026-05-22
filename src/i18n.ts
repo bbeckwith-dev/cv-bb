@@ -190,7 +190,7 @@ export const translations = {
           title: "This Portfolio",
           badge: "Adapted & Extended",
           badgeBuilding: "",
-          desc: "AI-powered portfolio with hardened chatbot featuring 6-layer security, RAG retrieval, voice mode, and Langfuse observability. Adapted from an open-source template and extended with my own content and career data.",
+          desc: "AI-powered portfolio with hardened chatbot featuring 6-layer security, 49 evals, RAG retrieval, voice mode, and Langfuse observability. Adopted a production-grade codebase and extended it with my own content, career data, and configuration — the same skill set as onboarding into an unfamiliar enterprise system.",
           tech: [
             "React 19",
             "TypeScript",
