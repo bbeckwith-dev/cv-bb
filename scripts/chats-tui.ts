@@ -161,8 +161,8 @@ function traceToPlainText(trace: Trace, index: number): string {
   const subSeparator = '-'.repeat(60);
 
   lines.push(separator);
-  lines.push(`CONVERSACIÓN ${index + 1} | ${trace.id}`);
-  lines.push(`Fecha: ${formatDate(trace.timestamp)} | Tags: ${formatTagsPlain(trace.tags)}`);
+  lines.push(`CONVERSATION ${index + 1} | ${trace.id}`);
+  lines.push(`Date: ${formatDate(trace.timestamp)} | Tags: ${formatTagsPlain(trace.tags)}`);
   lines.push(subSeparator);
 
   const messages = trace.observations?.[0]?.input || [];
@@ -172,7 +172,7 @@ function traceToPlainText(trace: Trace, index: number): string {
   for (const msg of messages) {
     if (msg.role === 'user') {
       lines.push('');
-      lines.push(`👤 USUARIO (${turnNumber}):`);
+      lines.push(`👤 USER (${turnNumber}):`);
       lines.push(msg.content);
     } else {
       lines.push('');
@@ -190,7 +190,7 @@ function traceToPlainText(trace: Trace, index: number): string {
   }
 
   lines.push('');
-  lines.push(`[${messages.length + (lastOutput ? 1 : 0)} mensajes]`);
+  lines.push(`[${messages.length + (lastOutput ? 1 : 0)} messages]`);
   lines.push('');
 
   return lines.join('\n');
@@ -250,7 +250,7 @@ function renderConversation(trace: Trace, index: number, total: number, scrollOf
   const isJailbreak = trace.tags.includes('jailbreak-attempt');
   const headerBg = isJailbreak ? BG_RED : INVERT;
   const navInfo = `${index + 1}/${total}`;
-  const headerText = ` 💬 CONVERSACIÓN ${trace.id.slice(0, 8)}... `;
+  const headerText = ` 💬 CONVERSATION ${trace.id.slice(0, 8)}... `;
   const padding = cols - headerText.length - navInfo.length - 2;
   lines.push(`${headerBg}${headerText}${' '.repeat(Math.max(0, padding))}${navInfo} ${RESET}`);
 
@@ -266,7 +266,7 @@ function renderConversation(trace: Trace, index: number, total: number, scrollOf
 
   for (const msg of messages) {
     if (msg.role === 'user') {
-      lines.push(`${GREEN}${BOLD}┌─ 👤 USUARIO (${turnNumber})${RESET}`);
+      lines.push(`${GREEN}${BOLD}┌─ 👤 USER (${turnNumber})${RESET}`);
       lines.push(`${GREEN}│${RESET}`);
       const wrapped = wrapText(msg.content, contentWidth - 4);
       for (const line of wrapped) {
@@ -297,7 +297,7 @@ function renderConversation(trace: Trace, index: number, total: number, scrollOf
   }
 
   lines.push('');
-  lines.push(`${DIM}✅ ${messages.length + (lastOutput ? 1 : 0)} mensajes${RESET}`);
+  lines.push(`${DIM}✅ ${messages.length + (lastOutput ? 1 : 0)} messages${RESET}`);
 
   return lines;
 }
@@ -329,7 +329,7 @@ function renderScreen(lines: string[], scrollOffset: number, showHelp: boolean =
 
   // Help bar
   if (showHelp) {
-    const helpText = `${INVERT} ← → ${RESET} Nav  ${INVERT} ↑ ↓ ${RESET} Scroll  ${INVERT} j ${RESET} Jailbreaks  ${INVERT} q ${RESET} Salir`;
+    const helpText = `${INVERT} ← → ${RESET} Nav  ${INVERT} ↑ ↓ ${RESET} Scroll  ${INVERT} j ${RESET} Jailbreaks  ${INVERT} q ${RESET} Quit`;
     process.stdout.write(`${helpText}\n`);
   }
 }
@@ -342,7 +342,7 @@ async function main() {
 
   process.stdout.write(HIDE_CURSOR);
   process.stdout.write(CLEAR);
-  process.stdout.write(`${CYAN}${BOLD}Cargando conversaciones...${RESET}\n`);
+  process.stdout.write(`${CYAN}${BOLD}Loading conversations...${RESET}\n`);
 
   let traces = await fetchTraces({ jailbreakOnly, days, limit: 100 });
   let traceDetails: (Trace | null)[] = [];
@@ -360,7 +360,7 @@ async function main() {
   // Export all chats to txt (reusing cached details)
   process.stdout.write(`${DIM}Exporting to logs/...${RESET}\n`);
   const exportPath = await exportAllChats(traces, traceDetails, jailbreakOnly, days);
-  process.stdout.write(`${GREEN}✅ Guardado: ${exportPath}${RESET}\n`);
+  process.stdout.write(`${GREEN}✅ Saved: ${exportPath}${RESET}\n`);
 
   let currentIndex = 0;
   let scrollOffset = 0;
@@ -464,15 +464,15 @@ async function main() {
     if (str === 'J') {
       jailbreakOnly = !jailbreakOnly;
       process.stdout.write(CLEAR);
-      process.stdout.write(`${CYAN}Recargando${jailbreakOnly ? ' (solo jailbreaks)' : ''}...${RESET}\n`);
+      process.stdout.write(`${CYAN}Reloading${jailbreakOnly ? ' (jailbreaks only)' : ''}...${RESET}\n`);
       traces = await fetchTraces({ jailbreakOnly, days, limit: 100 });
       traceDetails = [];
       currentIndex = 0;
       scrollOffset = 0;
 
       if (traces.length === 0) {
-        process.stdout.write(`${YELLOW}No hay conversaciones${jailbreakOnly ? ' de jailbreak' : ''}${RESET}\n`);
-        process.stdout.write(`${DIM}Pulsa J para cambiar filtro, q para salir${RESET}\n`);
+        process.stdout.write(`${YELLOW}No conversations${jailbreakOnly ? ' with jailbreak attempts' : ''} found${RESET}\n`);
+        process.stdout.write(`${DIM}Press J to toggle filter, q to quit${RESET}\n`);
       } else {
         await render();
       }

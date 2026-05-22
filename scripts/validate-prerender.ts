@@ -485,7 +485,7 @@ for (const [desc, labels] of metaDescriptions) {
   }
 }
 
-// 18. ES/EN content parity — removed (English-only site)
+// 18. Content parity check — removed (single-language site)
 
 if (crossIssues.length > 0) {
   printIssues(crossIssues, 'Cross-article checks')

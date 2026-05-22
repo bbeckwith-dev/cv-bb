@@ -894,7 +894,7 @@ function ReflectiveTypewriter({
     if (/[.,!?;:—]/.test(char)) delay += 120 + Math.random() * 100
     else if (char === ' ') delay += 20 + Math.random() * 30
     else if (prevChar === ' ') delay += 25 + Math.random() * 20
-    else if (/[áéíóúñü¿¡]/i.test(char)) delay += 30 + Math.random() * 20
+
     delay += (Math.random() - 0.5) * 20
     return Math.max(25, delay)
   }, [])

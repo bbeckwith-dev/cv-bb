@@ -88,7 +88,7 @@ async function fetchTraces(options: {
   });
 
   if (!response.ok) {
-    console.log(`${colors.red}Error al conectar con Langfuse: ${response.status}${colors.reset}`);
+    console.log(`${colors.red}Error connecting to Langfuse: ${response.status}${colors.reset}`);
     return [];
   }
 
@@ -97,7 +97,7 @@ async function fetchTraces(options: {
     const data = JSON.parse(text);
     return data.data || [];
   } catch {
-    console.log(`${colors.red}Error parseando respuesta de Langfuse${colors.reset}`);
+    console.log(`${colors.red}Error parsing Langfuse response${colors.reset}`);
     return [];
   }
 }
@@ -153,7 +153,7 @@ function wrapText(text: string, maxWidth: number, indent: string = ''): string {
 function printConversation(trace: Trace) {
   console.log();
   console.log(`${colors.bgRed}${colors.white}${colors.bold}                                                              ${colors.reset}`);
-  console.log(`${colors.bold}${colors.cyan}  💬 CONVERSACIÓN ${colors.reset}${colors.dim}${trace.id.slice(0, 8)}...${colors.reset}`);
+  console.log(`${colors.bold}${colors.cyan}  💬 CONVERSATION${colors.reset}${colors.dim}${trace.id.slice(0, 8)}...${colors.reset}`);
   console.log(`${colors.yellow}  📅 ${formatDate(trace.timestamp)}${colors.reset}  ${formatTags(trace.tags)}`);
   console.log(`${colors.dim}${'─'.repeat(62)}${colors.reset}`);
 
@@ -164,7 +164,7 @@ function printConversation(trace: Trace) {
   for (const msg of messages) {
     if (msg.role === 'user') {
       console.log();
-      console.log(`  ${colors.green}${colors.bold}┌─ 👤 USUARIO ${colors.dim}(${turnNumber})${colors.reset}`);
+      console.log(`  ${colors.green}${colors.bold}┌─ 👤 USER${colors.dim}(${turnNumber})${colors.reset}`);
       console.log(`  ${colors.green}│${colors.reset}`);
       const lines = msg.content.split('\n');
       for (const line of lines) {
@@ -301,8 +301,8 @@ ${colors.bold}Examples:${colors.reset}
       printTraceSummary(traces[i], i);
     }
     printSeparator();
-    console.log(`\n${colors.dim}💡 Usa --full para ver conversaciones completas${colors.reset}`);
-    console.log(`${colors.dim}   Ejemplo: npm run chats -- --full${colors.reset}\n`);
+    console.log(`\n${colors.dim}💡 Use --full to view full conversations${colors.reset}`);
+    console.log(`${colors.dim}   Example: npm run chats -- --full${colors.reset}\n`);
   }
 }
 
