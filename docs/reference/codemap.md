@@ -261,7 +261,8 @@ State machine: idle → connecting → listening → thinking → speaking → e
 
 | System | Purpose | Dashboard |
 |--------|---------|-----------|
-| Langfuse | Chat traces, cost tracking, prompt versioning, LLM-as-Judge | Langfuse cloud |
+| Langfuse | Chat traces, cost tracking, prompt versioning, LLM-as-Judge | us.cloud.langfuse.com |
+| Vercel | Hosting, edge functions, deployments | vercel.com/dashboard |
 | GoatCounter | Page views (privacy-friendly, no cookies) | cv-bb.goatcounter.com |
 | Console easter egg | `window.__brent` object with stack info | Browser DevTools |
 
