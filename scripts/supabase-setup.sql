@@ -1,4 +1,4 @@
--- RAG Setup for santifer.io chatbot
+-- RAG Setup for cv.brentbeckwith.com chatbot
 -- Run this in Supabase SQL Editor (Dashboard → SQL Editor → New Query)
 
 -- 1. Enable pgvector extension

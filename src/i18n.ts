@@ -70,7 +70,7 @@ export const translations = {
       p1: "Systems and support engineer with deep experience building reliability across",
       p1Highlight: "enterprise IT",
       p1End:
-        ", from desktop support to Linux administration, security operations, and full-stack LAMP development. Led hosting migrations for five major ISP acquisitions covering 5,000+ domains with zero data loss. Built Python and shell scripts that cut manual processes by 70%.",
+        ", from desktop support to Linux administration, security operations, and full-stack LAMP development. Spearheaded hosting migrations for five major ISP acquisitions covering 5,000+ domains with zero data loss. Built Python and shell scripts that cut manual processes by 70%.",
       p2: "Analyst's toolset with support professional's instinct.",
       p2Highlight: "",
       p2End: " Diagnosing problems, querying data, and building the documentation others rely on.",

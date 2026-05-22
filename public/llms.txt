@@ -4,7 +4,7 @@
 
 ## About
 
-SOC analyst and support specialist with broad enterprise IT experience — Linux admin, security operations, LAMP application maintenance. Led hosting migrations for five ISP acquisitions — 5,000+ domains, zero data loss. Created scripts that cut manual processes by 70%. Awarded Q-Excellence recognition, a singular award out of 600+ employees. Now building with AI tools daily and looking for the next chapter.
+SOC analyst and support specialist with broad enterprise IT experience — Linux admin, security operations, LAMP application maintenance. Spearheaded hosting migrations for five ISP acquisitions — 5,000+ domains, zero data loss. Created scripts that cut manual processes by 70%. Awarded Q-Excellence recognition, a singular award out of 600+ employees. Now building with AI tools daily and looking for the next chapter.
 
 Location: Madison, OH · Remote / Hybrid
 Email: brent.beckwith@gmail.com
@@ -66,7 +66,7 @@ Browser-based covered call options simulator with Black-Scholes European call pr
 ### This Portfolio
 React 19, TypeScript, Tailwind, Claude API, Supabase pgvector, Vercel
 
-AI-powered portfolio with chatbot, RAG retrieval, voice mode, and Langfuse observability. Adapted from an open-source template and extended with original content and career data.
+AI-powered portfolio with chatbot, RAG retrieval, voice mode, and Langfuse observability. Adopted a production-grade codebase and extended it with original content, career data, and configuration.
 
 ## AI-Augmented Workflow
 
