@@ -1,6 +1,6 @@
 export const seo = {
   en: {
-    title: "Brent Beckwith | SOC Analyst & AI-Augmented Problem Solver",
+    title: "Brent Beckwith | SOC Analyst & Developer",
     description:
       "SOC analyst with deep enterprise IT experience. 5,000+ domain migrations, zero data loss. Python automation, Linux administration, security operations. Uses AI daily to solve complex problems.",
   },
@@ -190,7 +190,7 @@ export const translations = {
           title: "This Portfolio",
           badge: "Adapted & Extended",
           badgeBuilding: "",
-          desc: "AI-powered portfolio with hardened chatbot featuring 6-layer security, 49 evals, RAG retrieval, voice mode, and Langfuse observability. Adopted a production-grade codebase and extended it with my own content, career data, and configuration — the same skill set as onboarding into an unfamiliar enterprise system.",
+          desc: "AI-powered portfolio with hardened chatbot featuring 6-layer security, 49 evals, RAG retrieval, voice mode, and Langfuse observability. Adopted a production-grade codebase and made it my own. Reading unfamiliar architecture, working within existing conventions, extending functionality without breaking what was already there. The same skill set as onboarding into an enterprise system.",
           tech: [
             "React 19",
             "TypeScript",
@@ -213,7 +213,7 @@ export const translations = {
       },
     },
     claudeCode: {
-      title: "AI-Augmented Workflow",
+      title: "AI-Assisted Development",
       badge: "Daily Practice · Claude User",
       desc: "I use Claude daily for research, troubleshooting, scripting, and development. AI is a tool that enhances every knowledge worker's ability to solve problems and I advocate for its thoughtful, human-focused adoption.",
       highlights: [

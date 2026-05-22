@@ -167,7 +167,7 @@ interface ArticleFooterProps {
 }
 
 const FOOTER_I18N = {
-  role: 'SOC Analyst & AI-Augmented Problem Solver',
+  role: 'SOC Analyst & Developer',
   bio: 'Broad enterprise IT experience. Building with AI daily.',
   fellowAt: '',
   copyright: 'All rights reserved.',

@@ -1,4 +1,4 @@
-# Brent Beckwith — SOC Analyst & AI-Augmented Problem Solver
+# Brent Beckwith — SOC Analyst & Developer
 
 > cv.brentbeckwith.com — Portfolio site with AI chatbot
 
@@ -66,9 +66,9 @@ Browser-based covered call options simulator with Black-Scholes European call pr
 ### This Portfolio
 React 19, TypeScript, Tailwind, Claude API, Supabase pgvector, Vercel
 
-AI-powered portfolio with chatbot, RAG retrieval, voice mode, and Langfuse observability. Adopted a production-grade codebase and extended it with original content, career data, and configuration.
+AI-powered portfolio with hardened chatbot featuring 6-layer security, 49 evals, RAG retrieval, voice mode, and Langfuse observability. Adopted a production-grade codebase and made it my own. Reading unfamiliar architecture, working within existing conventions, extending functionality without breaking what was already there. The same skill set as onboarding into an enterprise system.
 
-## AI-Augmented Workflow
+## AI-Assisted Development
 
 Daily Claude user for over a year — research, troubleshooting, development. Built whisper-notes integrating Anthropic API with streaming and OpenAI Whisper. Advocates for thoughtful AI adoption that enhances the human experience.
 
