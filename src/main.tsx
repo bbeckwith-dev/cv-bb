@@ -110,9 +110,9 @@ Object.defineProperty(window, '__brent', {
   value: Object.freeze({
     stack: 'React 19 + TypeScript + Vite + Tailwind v4 + Motion',
     llm: 'claude-sonnet-4-6 (streaming SSE)',
-    security: '6-layer defense (keywords, canary, fingerprint, anti-extraction, online scoring, adversarial)',
-    evals: '71 automated (factual, persona, safety, RAG, multilingual, multi-turn, source badges, voice)',
-    observability: 'Langfuse (traces, LLM-as-Judge, intent tags)',
+    security: 'multi-layer input validation and safety checks',
+    evals: '49 automated (factual, persona, safety, multi-turn, source badges)',
+    observability: 'production traces, LLM-as-Judge scoring, intent classification',
     render: 'Pre-rendered HTML + critical CSS inlined + client hydration',
     perf: () => { const n = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming; console.table({ TTFB: `${Math.round(n.responseStart - n.requestStart)}ms`, DOMContentLoaded: `${Math.round(n.domContentLoadedEventEnd - n.startTime)}ms`, Load: `${Math.round(n.loadEventEnd - n.startTime)}ms` }); },
     contact: 'brent.beckwith@gmail.com',

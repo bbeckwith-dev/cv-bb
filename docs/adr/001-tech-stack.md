@@ -6,7 +6,7 @@
 
 ## Context
 
-Adopting and extending a production-grade portfolio with 49 evals, edge functions, LLMOps observability, a multi-layer security chatbot, and prerender scripts. The work mirrors enterprise codebase onboarding: reading someone else's architecture, understanding the design decisions, tracing dependencies, and making confident changes at scale without breaking things. Key requirements: interactive AI chatbot, case study articles with rich content, English-only, pre-rendered for SEO, fast time-to-interactive.
+Adopting and extending a production-grade portfolio with an automated eval suite, edge functions, production observability, a security-hardened chatbot, and prerender scripts. The work mirrors enterprise codebase onboarding: reading someone else's architecture, understanding the design decisions, tracing dependencies, and making confident changes at scale without breaking things. Key requirements: interactive AI chatbot, case study articles with rich content, English-only, pre-rendered for SEO, fast time-to-interactive.
 
 ## Decision
 

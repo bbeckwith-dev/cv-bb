@@ -11,7 +11,6 @@ const content = {
       heading: 'What data is collected',
       items: [
         'Chatbot messages: when you interact with the chatbot, messages are processed to generate responses. No personally identifiable information is requested or stored.',
-        'Voice mode audio: if you activate voice mode, audio is processed in real time for conversation and is not permanently stored.',
         'Usage analytics: anonymous browsing data (pages visited, duration, device) is collected to improve the site.',
       ],
     },
@@ -27,8 +26,7 @@ const content = {
       heading: 'Third parties',
       items: [
         'Anthropic (Claude): processes chatbot messages to generate responses.',
-        'OpenAI (Realtime API): processes voice mode audio for real-time conversation.',
-        'Langfuse: stores anonymized conversation traces for observability and quality improvement.',
+        'Observability provider: stores anonymized conversation traces for quality improvement.',
         'GoatCounter: collects anonymous, cookie-free usage analytics (pages visited, referrers, browser, screen size). No personal data is tracked.',
         'Vercel: hosts the website.',
       ],
