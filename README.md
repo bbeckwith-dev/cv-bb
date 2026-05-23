@@ -24,7 +24,7 @@ The original is a bilingual Spanish/English portfolio with articles, voice mode,
 
 **Hardened security.** Added rate limiting with memory management to the chat API, request shape validation, XSS prevention, prompt leak defenses, and patched 12 npm audit vulnerabilities. Updated Content-Security-Policy headers when swapping analytics providers.
 
-**Engineered the chatbot prompt.** Rewrote the system prompt (212-line diff) with honest-mode verb rules,  safeguards, a transferable-skills bridging framework, anti-extraction defenses, and role-play rejection. This is behavioral system design, not just copy replacement.
+**Engineered the chatbot prompt.** Rewrote the system prompt (212-line diff) with honest-mode verb rules, a transferable-skills bridging framework, anti-extraction defenses, and role-play rejection. This is behavioral system design, not just copy replacement.
 
 **Fixed the build.** Resolved pre-existing TypeScript errors and made `npm run build` pass end-to-end after removing the i18n system.
 
