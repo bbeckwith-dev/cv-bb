@@ -35,11 +35,6 @@ const PROOF_POINTS: ProofPoint[] = [
     source: 'i18n.ts → projects → whisper-notes',
     terms: ['whisper-notes', 'Anthropic API', 'OpenAI Whisper'],
   },
-  {
-    source: 'i18n.ts → projects → CCsimulator',
-    terms: ['CCsimulator', 'Black-Scholes'],
-  },
-
   // -- AI workflow (i18n.ts → claudeCode) --
   {
     source: 'i18n.ts → claudeCode',
