@@ -49,7 +49,7 @@ export const translations = {
         "Process Automation",
         "Security Operations",
         "Linux Administration",
-        "AI-Augmented Work",
+        "AI-Assisted Development",
         "Reliability & Ops",
       ],
       skipButton: "Skip intro",
@@ -84,7 +84,7 @@ export const translations = {
           desc: "If it repeats, automate it. Reduced manual work by 70-80% through scripting",
         },
         {
-          title: "AI-Augmented Work",
+          title: "AI-Assisted Development",
           desc: "Daily Claude user for over a year. Research, troubleshooting, development",
         },
       ],

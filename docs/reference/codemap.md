@@ -135,7 +135,7 @@ User types in FloatingChat
 | `chatbot-prompt.txt` | System prompt: honest-mode rules, career data, chat constraints |
 | `cv.md` | RAG source document (indexed into Supabase) |
 
-### Security (6-layer defense)
+### Security (multi-layer defense)
 
 1. Keyword blacklist — flags jailbreak keywords
 2. Canary tokens — fake API keys that trigger alerts if repeated

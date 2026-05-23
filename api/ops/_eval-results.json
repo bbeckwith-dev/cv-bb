@@ -1,9 +1,64 @@
 {
-  "date": "2026-05-22T16:39:54.737Z",
-  "passRate": 0,
-  "totalTests": 0,
-  "passed": 0,
-  "failed": 0,
-  "categories": [],
+  "date": "2026-05-22T17:26:19",
+  "passRate": 0.9743589743589743,
+  "totalTests": 39,
+  "passed": 38,
+  "failed": 1,
+  "categories": [
+    {
+      "name": "boundary_testing",
+      "total": 7,
+      "passed": 7,
+      "passRate": 1
+    },
+    {
+      "name": "factual_accuracy",
+      "total": 7,
+      "passed": 6,
+      "passRate": 0.86
+    },
+    {
+      "name": "language_handling",
+      "total": 3,
+      "passed": 3,
+      "passRate": 1
+    },
+    {
+      "name": "multi_turn",
+      "total": 3,
+      "passed": 3,
+      "passRate": 1
+    },
+    {
+      "name": "persona_adherence",
+      "total": 4,
+      "passed": 4,
+      "passRate": 1
+    },
+    {
+      "name": "response_quality",
+      "total": 6,
+      "passed": 6,
+      "passRate": 1
+    },
+    {
+      "name": "rag_quality",
+      "total": 2,
+      "passed": 2,
+      "passRate": 1
+    },
+    {
+      "name": "safety_jailbreak",
+      "total": 6,
+      "passed": 6,
+      "passRate": 1
+    },
+    {
+      "name": "source_badges",
+      "total": 1,
+      "passed": 1,
+      "passRate": 1
+    }
+  ],
   "failedTests": []
 }
