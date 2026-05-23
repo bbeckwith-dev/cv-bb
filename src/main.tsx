@@ -111,7 +111,7 @@ Object.defineProperty(window, '__brent', {
     stack: 'React 19 + TypeScript + Vite + Tailwind v4 + Motion',
     llm: 'claude-sonnet-4-6 (streaming SSE)',
     security: 'multi-layer input validation and safety checks',
-    evals: '49 automated (factual, persona, safety, multi-turn, source badges)',
+    evals: 'automated suite (factual, persona, safety, multi-turn, source badges)',
     observability: 'production traces, LLM-as-Judge scoring, intent classification',
     render: 'Pre-rendered HTML + critical CSS inlined + client hydration',
     perf: () => { const n = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming; console.table({ TTFB: `${Math.round(n.responseStart - n.requestStart)}ms`, DOMContentLoaded: `${Math.round(n.domContentLoadedEventEnd - n.startTime)}ms`, Load: `${Math.round(n.loadEventEnd - n.startTime)}ms` }); },

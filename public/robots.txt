@@ -1,7 +1,7 @@
 # Most bots crawl. The best ones read llms.txt → /llms.txt
 #
 # Adapted by Brent Beckwith — brent.beckwith@gmail.com
-# Stack: React 19 · Claude API · Vercel Edge · 49 evals · security-hardened chatbot
+# Stack: React 19 · Claude API · Vercel Edge · automated eval suite · security-hardened chatbot
 
 User-agent: *
 Allow: /

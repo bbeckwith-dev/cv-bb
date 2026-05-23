@@ -32,7 +32,7 @@ CLAUDE.md
 chatbot/audit/
 
 # Private negotiation/audit files
-*santiferirepair*
+*-repair-audit*
 plan-*.md
 audit-*.md
 
@@ -57,7 +57,7 @@ chatbot/.playwright-mcp/
 scripts/chunks/
 
 # Reference / working files (not part of the site)
-_santiago-reference/
+_template-reference/
 temp-cv/
 resumeskill/
 cv.md.old

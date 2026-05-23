@@ -135,14 +135,12 @@ User types in FloatingChat
 | `chatbot-prompt.txt` | System prompt: honest-mode rules, career data, chat constraints |
 | `cv.md` | RAG source document (indexed into Supabase) |
 
-### Security (multi-layer defense)
+### Security (defense in depth)
 
-1. Keyword blacklist — flags jailbreak keywords
-2. Canary tokens — fake API keys that trigger alerts if repeated
-3. Fingerprinting — user behavior anomaly detection
-4. Anti-extraction rules — blocks credential scraping patterns
-5. Online scoring — optional ML model
-6. Adversarial checks — confirms model identity
+1. Keyword screening — flags jailbreak keywords
+2. Canary tokens — decoy credentials that trigger alerts if repeated
+3. Anti-extraction rules — blocks prompt and credential scraping patterns
+4. Adversarial testing — automated eval suite covers jailbreak and boundary scenarios
 
 ## RAG Pipeline
 
