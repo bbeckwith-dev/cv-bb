@@ -196,10 +196,9 @@ export const translations = {
             "TypeScript",
             "Tailwind",
             "Claude API",
-            "Vercel Edge",
-            "Vercel",
+            "Vercel Edge Functions",
           ],
-          link: "",
+          link: "github.com/bbeckwith-dev/cv-bb",
         },
       ],
       saPlaybook: {
