@@ -1,6 +1,6 @@
 export const seo = {
   en: {
-    title: "Brent Beckwith | SOC Analyst & Developer",
+    title: "Brent Beckwith | SOC Analyst & Engineer",
     description:
       "SOC analyst with deep enterprise IT experience. 5,000+ domain migrations, zero data loss. Python automation, Linux administration, security operations. Uses AI daily to solve complex problems.",
   },
@@ -57,7 +57,7 @@ export const translations = {
     taglines: [] as readonly string[],
     location: "Madison, OH · Remote / Hybrid",
     roles: [
-      "Junior Full-Stack Developer",
+      "Junior Full-Stack Developer / Engineer",
       "Junior Frontend Developer",
       "WordPress Developer / Web Administrator",
       "AI Product Support Engineer",
