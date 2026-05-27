@@ -1,7 +1,7 @@
 import Anthropic from '@anthropic-ai/sdk'
 import { Langfuse } from 'langfuse'
 import { waitUntil } from '@vercel/functions'
-import SYSTEM_PROMPT_FALLBACK from '../chatbot-prompt.txt'
+const SYSTEM_PROMPT_FALLBACK = process.env.CHATBOT_SYSTEM_PROMPT || null
 import {
   calcCost, isRagEnabled, PORTFOLIO_TOOL, formatChunksForContext,
   searchPortfolio, filterSourcesByResponse, detectMentionedArticles,
@@ -164,8 +164,9 @@ export default async function handler(req) {
         systemPromptText = prompt.prompt
         promptVersion = prompt.version
       } catch {
+        if (!SYSTEM_PROMPT_FALLBACK) throw new Error('No prompt source: Langfuse override failed and CHATBOT_SYSTEM_PROMPT is not set')
         systemPromptText = SYSTEM_PROMPT_FALLBACK
-        promptVersion = 'file'
+        promptVersion = 'env'
       }
     } else {
       const { text, version } = await getSystemPrompt(langfuse)

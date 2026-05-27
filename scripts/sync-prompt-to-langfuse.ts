@@ -52,6 +52,10 @@ function hash(text: string): string {
 
 async function main() {
   const promptPath = path.join(import.meta.dirname, '..', 'chatbot-prompt.txt')
+  if (!fs.existsSync(promptPath)) {
+    console.error('❌ chatbot-prompt.txt not found. This file is gitignored — ensure it exists locally before syncing to Langfuse.')
+    process.exit(1)
+  }
   const promptContent = fs.readFileSync(promptPath, 'utf-8')
   const localHash = hash(promptContent)
 

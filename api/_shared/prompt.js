@@ -1,5 +1,3 @@
-import FALLBACK from '../../chatbot-prompt.txt'
-
 export async function getSystemPrompt(langfuse) {
   try {
     if (langfuse) {
@@ -8,6 +6,8 @@ export async function getSystemPrompt(langfuse) {
       })
       return { text: prompt.prompt, version: prompt.version }
     }
-  } catch { /* fallback to file */ }
-  return { text: FALLBACK, version: 'file' }
+  } catch { /* fallback to env */ }
+  const fallback = process.env.CHATBOT_SYSTEM_PROMPT
+  if (!fallback) throw new Error('No prompt source available (set CHATBOT_SYSTEM_PROMPT or configure Langfuse)')
+  return { text: fallback, version: 'env' }
 }
