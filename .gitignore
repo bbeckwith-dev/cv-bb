@@ -62,3 +62,13 @@ temp-cv/
 resumeskill/
 cv.md.old
 headshot.jpg
+
+# Chatbot prompt and security testing (strategy-sensitive)
+chatbot-prompt.txt
+scripts/adversarial-test.ts
+scripts/prompt-regression.ts
+evals/datasets/
+evals/assertions.ts
+evals/llm-judge.ts
+evals/runner.ts
+evals/tsconfig.json
