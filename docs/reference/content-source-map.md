@@ -106,7 +106,7 @@ These numbers appear in multiple files. If one changes, all must change.
 - Consumed by `src/AboutPage.tsx`
 
 ### `chatbot-prompt.txt` — Chat system prompt
-- Honest-mode rules: verb restrictions,  (lines 3-32)
+- Honest-mode rules: verb restrictions (lines 3-32)
 - Transferable skills frameworks (lines 34-66)
 - Full career profile (lines 68-123) — copy of `cv.md`
 - Chat constraints: 150-word max, tone, format (lines 124-216)
@@ -142,9 +142,6 @@ These numbers appear in multiple files. If one changes, all must change.
 - Assertions must match the actual data in cv.md/chatbot-prompt.txt
 
 ## Content Rules
-
-### Anti-ageism (critical)
-Never state career length as "20+ years," "two decades," or similar. Use "broad experience" or leave vague. Enforced in `chatbot-prompt.txt` lines 21-24. Tested by `evals/datasets/factual.json` (exp-years test).
 
 ### Verb calibration
 Use "Spearheaded" for migrations, "Pioneered" for rollouts, "Coordinated" for team efforts. Never "Led" or "Participated in." See `chatbot-prompt.txt` line 16 and memory file `feedback_verb-strength.md`.
