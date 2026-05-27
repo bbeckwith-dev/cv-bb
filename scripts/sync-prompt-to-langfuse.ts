@@ -53,6 +53,10 @@ function hash(text: string): string {
 async function main() {
   const promptPath = path.join(import.meta.dirname, '..', 'chatbot-prompt.txt')
   if (!fs.existsSync(promptPath)) {
+    if (process.env.VERCEL) {
+      console.log('⏭️  prompt:sync skipped (chatbot-prompt.txt is gitignored, prompt served from CHATBOT_SYSTEM_PROMPT env var)')
+      process.exit(0)
+    }
     console.error('❌ chatbot-prompt.txt not found. This file is gitignored — ensure it exists locally before syncing to Langfuse.')
     process.exit(1)
   }
