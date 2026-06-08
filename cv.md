@@ -21,7 +21,7 @@ Sep 2025 -- Present
 * Daily AI-assisted development with Claude Code for scripting, automation, and problem solving
 * Continuing self-directed study in modern web development and cloud platforms
 
-### AmTrust Financial Services Inc -- Madison, OH
+### AmTrust Financial Services Inc -- Cleveland, OH
 
 **Desktop Specialist II**
 Oct 2024 -- Sep 2025
