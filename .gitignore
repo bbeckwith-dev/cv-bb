@@ -57,6 +57,7 @@ chatbot/.playwright-mcp/
 scripts/chunks/
 
 # Reference / working files (not part of the site)
+EDITING-GUIDE.md
 _template-reference/
 temp-cv/
 resumeskill/

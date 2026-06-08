@@ -217,6 +217,17 @@ Post-build SSR via `scripts/prerender.tsx`:
 - Critters inlines critical CSS
 - Client hydrates with `hydrateRoot()` (zero layout shift)
 
+## SEO / Metadata
+
+The homepage `index.html` meta tags are **not** the production source of truth — prerender overwrites them.
+
+- **Homepage meta = `src/i18n.ts` → `seo.en`** (`title`, `description`). At build time `scripts/prerender.tsx` (~L101–114) string-replaces `<title>`, `meta name="title"`, `meta name="description"`, `og:title/description`, `twitter:title/description` from `seo.en`. This is what production serves.
+- **`index.html` meta tags (L15–34)** only drive **dev** (vite serves raw `index.html`; homepage has no runtime `document.title` setter) and act as the prerender template base. Convention: raw `&` in markup; prerender's `esc()` emits `&amp;`.
+- => Changing homepage meta requires editing **both** `src/i18n.ts` (`seo.en`) **and** `index.html`, kept in sync.
+- **/about meta is separate:** `src/about-i18n.ts` → `aboutContent.en.seo`, prerendered at `scripts/prerender.tsx` (~L180–218); `src/AboutPage.tsx` also sets title/description at runtime.
+- **Article SEO reuses homepage seo:** `src/articles/json-ld.ts:152-153` reads `i18n.seo.title`/`.description`.
+- `scripts/validate-articles.ts` warns on article SEO title > 60 chars (homepage title not checked).
+
 ## Voice Mode
 
 | File | Role |

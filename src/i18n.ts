@@ -1,22 +1,20 @@
 export const seo = {
   en: {
-    title: "Brent Beckwith | SOC Analyst & Engineer",
+    title: "Brent Beckwith | Applications and Systems Support Engineer",
     description:
-      "SOC analyst with deep enterprise IT experience. 5,000+ domain migrations, zero data loss. Python automation, Linux administration, security operations. Uses AI daily to solve complex problems.",
+      "Applications and systems support engineer and Linux SME. Led five ISP-acquisition migrations covering 5,000+ domains. Comfortable in the backend, writes scripts when the job calls for it.",
   },
 };
 
 export const translations = {
   en: {
-    greeting: "turning experience into code",
+    greeting: "turning experience into solutions that work",
     greetingRoles: [
       "Support Specialist",
-      "SOC Analyst",
-      "Web Ops Specialist",
+      "Web Ops Analyst",
       "Customer Support Engineer",
     ],
     pillLabels: [
-      "Trusted",
       "Analytical",
       "Versatile",
       "Resourceful",
@@ -32,11 +30,9 @@ export const translations = {
           "A career of broad experiences filled with servers, networks, applications, concepts, projects, and communications has found the +final piece+.",
         ],
       ],
-      why: "An experienced generalist with AI isn't just a jack of all trades anymore. Breadth becomes the map. Depth is researched, planned, and on-demand.",
+      why: "Linux SME with a hosting-support core and five ISP-acquisition migrations behind me. I work comfortably in the backend, keep web and hosting systems running, and write scripts when the job calls for it. AI is part of how I research, plan, and solve problems day to day.",
       seeking: [
-        "AI has changed how I plan, research, and execute everything.",
-        "I'm ready for roles that leverage my alchemy.",
-        "Let's build something.",
+        "Open to support, systems, implementation, and development roles where that mix matters.",
       ],
       nav: [
         { icon: "briefcase", label: "My path", href: "#experience" },
@@ -93,16 +89,16 @@ export const translations = {
       title: "Core Competencies",
       items: [
         {
+          title: "Migration & Transition Execution",
+          desc: "Five ISP acquisition migrations, 5,000+ domains, 60+ servers. Data harvesting and customer comms",
+        },
+        {
           title: "Analytical Problem Solving",
           desc: "Root cause analysis, SQL queries for actionable data, security analysis across 13M+ IP addresses",
         },
         {
-          title: "Scripting & Process Efficiency",
+          title: "Scripting & Backend Support",
           desc: "Bash and Python scripts replacing hours of manual work with minutes. Automated backups to AWS",
-        },
-        {
-          title: "Migration & Transition Execution",
-          desc: "Five ISP acquisition migrations, 5,000+ domains, 60+ servers. Data harvesting and customer comms",
         },
         {
           title: "Stakeholder Communication",
@@ -121,10 +117,6 @@ export const translations = {
     techStack: {
       title: "Tech Stack",
       categories: [
-        {
-          name: "AI",
-          items: ["Claude", "ChatGPT"],
-        },
         {
           name: "Languages",
           items: [
@@ -146,6 +138,14 @@ export const translations = {
           items: ["Apache", "Exim", "BIND", "djbdns", "tinydns", "NetApp / NFS", "Docker", "AWS", "Azure"],
         },
         {
+          name: "Platforms / Tools",
+          items: ["Microsoft 365 Entra / Intune", "ServiceNow", "Remedy", "Citrix", "Plesk", "Git / GitHub"],
+        },
+        {
+          name: "AI",
+          items: ["Claude", "ChatGPT"],
+        },
+        {
           name: "Security / Monitoring",
           items: [
             "Fortinet",
@@ -155,10 +155,6 @@ export const translations = {
             "Proofpoint",
             "Mimecast",
           ],
-        },
-        {
-          name: "Platforms / Tools",
-          items: ["Microsoft 365 Entra / Intune", "ServiceNow", "Remedy", "Citrix", "Plesk", "Git / GitHub"],
         },
       ],
     },
@@ -234,9 +230,10 @@ export const translations = {
         location: "Cleveland, OH",
         role: "Desktop Specialist II",
         period: "Oct 2024 - Sep 2025",
-        desc: "Enterprise desktop support across a global, 6,000+ user operation with hardware support spanning 20 states. The role that sharpened how I think about triage at scale, cross-team escalation, and making sure the next person can find what I found.",
+        desc: "Windows 11 and Microsoft 365 application support for a global, 6,000+ user operation, with hardware support spanning 20 states. The role that sharpened how I think about triage at scale, cross-team escalation, and making sure the next person can find what I found.",
         highlights: [
-          "Delivered technical support for Windows 11, Office 365, and various application across multi-state operations via onsite, remote, and phone channels, consistently meeting SLA/OLA standards",
+          "Delivered Windows 11 and Microsoft 365 application support via onsite, remote, and phone channels, consistently meeting SLA/OLA standards",
+          "Administered users, devices, and access through Entra, Active Directory, and Intune, and managed support tickets in ServiceNow",
           "Handled full hardware lifecycle for the company's largest office: deployment, break/fix, inventory control, and depot stock maintenance",
           "Analyzed hardware replacement requests from Level I technicians, verifying proper diagnosis before approval to prevent unnecessary spend",
           "Consulted Level I techs on procedures and escalations; consolidated and escalated priority tickets to engineering teams requiring elevated access",
@@ -246,12 +243,12 @@ export const translations = {
       careerBreak2023: {
         title: "Career Break",
         period: "Oct 2023 - Oct 2024",
-        desc: "Caught in a Windstream reduction in force despite nothing but above-average and excellent reviews. Relocated cross-country, renovated my home, and started exploring web development with the Odin Project, photography, and writing as possible next directions.",
+        desc: "Caught in a Windstream reduction in force. Relocated cross-country, renovated my home, and started exploring web development with the Odin Project, photography, and writing as possible next directions.",
       },
       windstreamEngineer: {
         company: "Windstream Communications",
         location: "Remote",
-        role: "Security Analyst I",
+        role: "Security Analyst I → Security Engineer I",
         period: "Dec 2019 - Oct 2023",
         desc: "Maintained the CSOC's internal web applications, databases, and backup systems. The closest I've come to a full-stack development role, maintaining and extending LAMP applications while working inside a security operations team. Notable scripts affected hundreds of network devices and checked IP reputation at scale.",
         highlights: [
@@ -429,7 +426,7 @@ export const translations = {
     },
     cta: {
       title: "Let's talk",
-      desc: "I'm pursuing roles across full-stack development, application support, data analysis, and technical writing where I can grow alongside a team that values curiosity and initiative. If you need someone who combines analytical depth with broad technical literacy and a belief that AI should enhance the human experience, not replace it. Let's connect.",
+      desc: "I'm pursuing roles across application and systems support, Linux administration, migration and implementation, and full-stack development — ideally on a team that values curiosity and initiative. If you want someone who pairs deep support and migration experience with real backend comfort, let's connect.",
       contact: "Contact",
     },
     ui: {
