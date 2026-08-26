@@ -30,9 +30,9 @@ export const translations = {
           "A career of broad experiences filled with servers, networks, applications, concepts, projects, and communications.",
         ],
       ],
-      why: "Linux SME with a hosting-support core and five ISP-acquisition migrations behind me. I work comfortably in the backend, support, educate, and reduce friction on the front end, and write scripts when the job calls for it. AI is part of how I research, plan, and solve problems day to day.",
+      why: "Linux SME with a hosting-support core and five ISP-acquisition migrations behind me. I work comfortably in the backend, reduce friction, educate, and support the front end, and write scripts when the job calls for it. AI is part of how I research, plan, and solve problems day to day.",
       seeking: [
-        "Open to support, systems, implementation, and development roles where that mix matters.",
+        "Open to support, systems, and implementation roles where that mix matters.",
       ],
       nav: [
         { icon: "briefcase", label: "My path", href: "#experience" },
@@ -250,7 +250,7 @@ export const translations = {
         location: "Remote",
         role: "Security Analyst I → Security Engineer I",
         period: "Dec 2019 - Oct 2023",
-        desc: "Maintained the CSOC's internal web applications, databases, and backup systems. The closest I've come to a full-stack development role, maintaining and extending LAMP applications while working inside a security operations team. Notable scripts affected hundreds of network devices and checked IP reputation at scale.",
+        desc: "Maintained the CSOC's internal web applications, databases, and backup systems. Application support end to end, maintaining and extending LAMP applications while working inside a security operations team. Notable scripts affected hundreds of network devices and checked IP reputation at scale.",
         highlights: [
           "Maintained CSOC warehousing LAMP website, wiki, and servers, the applications the security team relied on daily",
           "Designed daily backups of CSOC websites and databases to AWS servers",
@@ -374,8 +374,8 @@ export const translations = {
         {
           year: "",
           org: "The Odin Project",
-          title: "Modern Web Development",
-          desc: "Full Stack JavaScript",
+          title: "Full Stack JavaScript",
+          desc: "Self-directed study",
         },
         {
           year: "",
