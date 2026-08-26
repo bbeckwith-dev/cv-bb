@@ -94,7 +94,7 @@ export const translations = {
         },
         {
           title: "Analytical Problem Solving",
-          desc: "Root cause analysis, SQL queries for actionable data, security analysis across 13M+ IP addresses",
+          desc: "Root cause analysis, SQL queries for actionable data, large-scale IP analysis across 13M+ addresses",
         },
         {
           title: "Scripting & Backend Support",

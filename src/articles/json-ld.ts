@@ -58,7 +58,7 @@ const PERSON = {
   '@id': '#person',
   name: 'Brent Beckwith',
   url: 'https://linkedin.com/in/brent-beckwith',
-  jobTitle: 'SOC Analyst',
+  jobTitle: 'Applications and Systems Support Engineer',
   sameAs: [
     'https://linkedin.com/in/brent-beckwith',
     'https://github.com/bbeckwith-dev',

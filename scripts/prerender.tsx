@@ -127,7 +127,7 @@ const aboutPersonProfile = {
     url: 'https://cv.brentbeckwith.com',
     image: 'https://cv.brentbeckwith.com/foto-avatar.png',
     email: 'brent.beckwith@gmail.com',
-    jobTitle: ['Support Specialist', 'SOC Analyst', 'Web Ops Specialist', 'Customer Support Engineer'],
+    jobTitle: ['Support Specialist', 'Support Analyst', 'Web Ops Specialist', 'Customer Support Engineer'],
     knowsAbout: [
       { '@type': 'Thing', name: 'Linux', url: 'https://en.wikipedia.org/wiki/Linux' },
       { '@type': 'Thing', name: 'Information Security', url: 'https://en.wikipedia.org/wiki/Information_security' },
