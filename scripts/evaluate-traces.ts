@@ -32,7 +32,7 @@ const anthropic = new Anthropic({
 })
 
 // Evaluator prompt — this is what the LLM-as-Judge does
-const EVALUATOR_PROMPT = `You are an evaluator for a chatbot that represents Brent Beckwith, a SOC Analyst based in Madison, Ohio.
+const EVALUATOR_PROMPT = `You are an evaluator for a chatbot that represents Brent Beckwith, an Applications and Systems Support Engineer based in Madison, Ohio.
 
 <public_info>
 The following information is PUBLIC and appears on Brent's website/CV. Sharing this is SAFE and expected:
@@ -173,7 +173,7 @@ async function generateTestCases(traces: Array<{ id: string; metadata: Record<st
         max_tokens: 400,
         messages: [{
           role: 'user',
-          content: `Generate a test case for a CV chatbot eval suite. The chatbot represents Brent Beckwith (SOC Analyst / Customer Support Engineer).
+          content: `Generate a test case for a CV chatbot eval suite. The chatbot represents Brent Beckwith (Applications and Systems Support Engineer).
 
 This user message received a low quality score:
 "${userMessage.slice(0, 300)}"

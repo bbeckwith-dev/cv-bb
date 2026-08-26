@@ -1,6 +1,6 @@
 /* TEAM */
 Owner: Brent Beckwith
-Role: SOC Analyst · Customer Support Engineer
+Role: Applications & Systems Support Engineer
 Contact: brent.beckwith@gmail.com
 Location: Madison, Ohio
 LinkedIn: https://linkedin.com/in/brent-beckwith
