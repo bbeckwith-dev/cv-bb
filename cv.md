@@ -7,7 +7,7 @@
 
 ## Professional Summary
 
-SOC analyst and support specialist with deep experience building reliability across enterprise IT — from desktop support to Linux administration, security operations, and full-stack LAMP development. Spearheaded hosting migrations for five major ISP acquisitions covering 5,000+ domains with zero data loss. Built Python and shell scripts that cut manual processes by 70%. Maintained critical LAMP applications, MySQL databases, and AWS backup infrastructure. Awarded Q-Excellence recognition (singular award out of 600+ employees) for outstanding performance.
+Applications and systems support engineer with deep experience building reliability across enterprise IT — from desktop support to Linux administration, security operations, and LAMP application maintenance. Spearheaded hosting migrations for five major ISP acquisitions covering 5,000+ domains with zero data loss. Built Python and shell scripts that cut manual processes by 70%. Maintained critical LAMP applications, MySQL databases, and AWS backup infrastructure. Awarded Q-Excellence recognition (singular award out of 600+ employees) for outstanding performance.
 
 Most recently supported 6,000+ users across 20 states in Microsoft 365/Intune environments. Uses AI tools daily for research, troubleshooting, and process improvement — advocates for thoughtful, human-focused AI adoption.
 
@@ -17,9 +17,9 @@ Most recently supported 6,000+ users across 20 states in Microsoft 365/Intune en
 
 Sep 2025 -- Present
 
-* Building open-source tools: whisper-notes (Python, Anthropic API) and CCsimulator (JavaScript, Black-Scholes)
+* Building open-source tooling that removes repetitive work: whisper-notes (Python, Anthropic API), a CLI that turns recordings and documents into structured notes
 * Daily AI-assisted development with Claude Code for scripting, automation, and problem solving
-* Continuing self-directed study in modern web development and cloud platforms
+* Continuing self-directed study in web technologies and cloud platforms
 
 ### AmTrust Financial Services Inc -- Cleveland, OH
 
@@ -36,7 +36,7 @@ Oct 2024 -- Sep 2025
 
 Oct 2023 -- Oct 2024
 
-* Self-directed study in modern web development (The Odin Project -- Full Stack JavaScript)
+* Self-directed study in web technologies (The Odin Project -- Full Stack JavaScript)
 * AI-assisted development and problem solving -- daily use of Claude for over a year
 * Explored writing, photography, and media creation as additional career interests
 
@@ -143,7 +143,7 @@ Browser-based covered call options simulator for learning option mechanics. Impl
 ## Skills
 
 * **Systems:** Windows 11, Windows Server, Linux (CentOS), Solaris, Unix, Microsoft 365/Intune, Active Directory, ESXi
-* **Development:** Python, Bash/Shell, PowerShell, PHP, JavaScript, HTML/CSS, SQL/MySQL, Perl, CGI, Django, WordPress
+* **Languages:** Python, Bash/Shell, PowerShell, PHP, JavaScript, HTML/CSS, SQL/MySQL, Perl, CGI, Django, WordPress
 * **Infrastructure:** Apache, BIND (DNS), djbdns/tinydns, Exim, Qmail, AWS, Azure, Docker, NetApp/NFS, SSH, SSL
 * **Security:** Fortinet, Solarwinds, NagiOS/Sentry, Trustwave, Proofpoint, Mimecast, Cleanmail (ClamAV/AVG/Kaspersky)
 * **Platforms:** Hostopia, Plesk, Intermedia Hosted Exchange, Google Apps

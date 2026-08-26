@@ -58,7 +58,7 @@ const PROOF_POINTS: ProofPoint[] = [
   // -- Core identity --
   {
     source: 'cv.md → summary',
-    terms: ['SOC', 'Linux', 'Python'],
+    terms: ['applications and systems support', 'Linux', 'Python'],
   },
 ]
 

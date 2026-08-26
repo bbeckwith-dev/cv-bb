@@ -1,10 +1,10 @@
-# Brent Beckwith — SOC Analyst & Developer
+# Brent Beckwith — Applications & Systems Support Engineer
 
 > cv.brentbeckwith.com — Portfolio site with AI chatbot
 
 ## About
 
-SOC analyst and support specialist with broad enterprise IT experience — Linux admin, security operations, LAMP application maintenance. Spearheaded hosting migrations for five ISP acquisitions — 5,000+ domains, zero data loss. Created scripts that cut manual processes by 70%. Awarded Q-Excellence recognition, a singular award out of 600+ employees. Now building with AI tools daily and looking for the next chapter.
+Applications and systems support engineer with broad enterprise IT experience — Linux admin, security operations, LAMP application maintenance. Spearheaded hosting migrations for five ISP acquisitions — 5,000+ domains, zero data loss. Created scripts that cut manual processes by 70%. Awarded Q-Excellence recognition, a singular award out of 600+ employees. Now building with AI tools daily and looking for the next chapter.
 
 Location: Madison, OH · Remote / Hybrid
 Email: brent.beckwith@gmail.com
