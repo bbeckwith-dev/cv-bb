@@ -73,7 +73,7 @@ cv-bb/
 │   ├── llm-judge.ts            # LLM-as-Judge scoring
 │   └── datasets/               # 11 test datasets (JSON)
 ├── chatbot-prompt.txt          # System prompt fallback
-├── cv.md                       # Markdown CV (RAG source)
+├── cv.md                       # Markdown CV (standalone document, not rendered or indexed)
 ├── index.html                  # SPA entry + meta + JSON-LD + theme script
 ├── vite.config.ts              # Build config
 ├── vercel.json                 # Headers, redirects, rewrites
@@ -133,7 +133,7 @@ User types in FloatingChat
 | `api/_shared/rag.js` | RAG pipeline: embedQuery, searchDocuments, rerankChunks, formatChunksForContext, extractSources |
 | `api/_shared/prompt.js` | Loads system prompt from Langfuse (300s cache) with `chatbot-prompt.txt` fallback |
 | `chatbot-prompt.txt` | System prompt: honest-mode rules, career data, chat constraints |
-| `cv.md` | RAG source document (indexed into Supabase) |
+| `cv.md` | Standalone CV document; NOT in RAG (article registry is empty, chatbot knowledge comes from the system prompt) |
 
 ### Security (defense in depth)
 

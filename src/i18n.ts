@@ -52,15 +52,6 @@ export const translations = {
     },
     taglines: [] as readonly string[],
     location: "Madison, OH · Remote / Hybrid",
-    roles: [
-      "Junior Full-Stack Developer / Engineer",
-      "Junior Frontend Developer",
-      "WordPress Developer / Web Administrator",
-      "AI Product Support Engineer",
-      "Application Support Analyst",
-      "Technical Writer",
-      "Junior Data Analyst",
-    ],
     summary: {
       title: "Professional Summary",
       p1: "Systems and support engineer with deep experience building reliability across",
