@@ -63,7 +63,7 @@ github.com/bbeckwith-dev/cv-bb | React 19, TypeScript, Tailwind, Claude API, Ver
 
 AI-powered portfolio with security-hardened chatbot, automated eval suite, and production observability. Adopted a production-grade codebase and made it my own. Reading unfamiliar architecture, working within existing conventions, extending functionality without breaking what was already there. The same skill set as onboarding into an enterprise system.
 
-## AI-Assisted Development
+## AI-Assisted Work
 
 Daily Claude user for over a year — research, troubleshooting, development. Built whisper-notes integrating Anthropic API with streaming and OpenAI Whisper. Advocates for thoughtful AI adoption that enhances the human experience.
 

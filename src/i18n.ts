@@ -24,13 +24,13 @@ export const translations = {
     story: {
       context:
         "+Over a decade+ of migration, rollout, and utility projects alongside web server, app, and desktop support.",
-      reflections: ["Almost but not quite full stack experience.", "I know how to script, what if I learned to code?"],
+      reflections: [],
       hookParagraphs: [
         [
-          "A career of broad experiences filled with servers, networks, applications, concepts, projects, and communications has found the +final piece+.",
+          "A career of broad experiences filled with servers, networks, applications, concepts, projects, and communications.",
         ],
       ],
-      why: "Linux SME with a hosting-support core and five ISP-acquisition migrations behind me. I work comfortably in the backend, keep web and hosting systems running, and write scripts when the job calls for it. AI is part of how I research, plan, and solve problems day to day.",
+      why: "Linux SME with a hosting-support core and five ISP-acquisition migrations behind me. I work comfortably in the backend, support, educate, and reduce friction on the front end, and write scripts when the job calls for it. AI is part of how I research, plan, and solve problems day to day.",
       seeking: [
         "Open to support, systems, implementation, and development roles where that mix matters.",
       ],
@@ -45,7 +45,7 @@ export const translations = {
         "Process Automation",
         "Security Operations",
         "Linux Administration",
-        "AI-Assisted Development",
+        "AI-Assisted Work",
         "Reliability & Ops",
       ],
       skipButton: "Skip intro",
@@ -80,7 +80,7 @@ export const translations = {
           desc: "If it repeats, automate it. Reduced manual work by 70-80% through scripting",
         },
         {
-          title: "AI-Assisted Development",
+          title: "AI-Assisted Work",
           desc: "Daily Claude user for over a year. Research, troubleshooting, development",
         },
       ],
@@ -208,7 +208,7 @@ export const translations = {
       },
     },
     claudeCode: {
-      title: "AI-Assisted Development",
+      title: "AI-Assisted Work",
       badge: "Daily Practice · Claude User",
       desc: "I use Claude daily for research, troubleshooting, scripting, and development. AI is a tool that enhances every knowledge worker's ability to solve problems and I advocate for its thoughtful, human-focused adoption.",
       highlights: [
@@ -223,7 +223,7 @@ export const translations = {
       careerBreakCurrent: {
         title: "Job Search / Professional Development",
         period: "Sep 2025 - Present",
-        desc: "AI-assisted development workflows and product research. Applying years of operational knowledge to learning how to build, not just maintain. Looking for a team that invests in growing its people.",
+        desc: "Building tooling that removes repetitive work, including whisper-notes, a Python CLI that turns recordings and documents into structured notes. Using AI daily for research, troubleshooting, and automation. Looking for a team that invests in growing its people.",
       },
       amtrust: {
         company: "AmTrust Financial Services",
@@ -426,7 +426,7 @@ export const translations = {
     },
     cta: {
       title: "Let's talk",
-      desc: "I'm pursuing roles across application and systems support, Linux administration, migration and implementation, and full-stack development — ideally on a team that values curiosity and initiative. If you want someone who pairs deep support and migration experience with real backend comfort, let's connect.",
+      desc: "I'm pursuing roles across application and systems support, Linux administration, migration and implementation, and web hosting support, ideally on a team that values curiosity and initiative. If you want someone who pairs deep support and migration experience with real backend comfort, let's connect.",
       contact: "Contact",
     },
     ui: {
