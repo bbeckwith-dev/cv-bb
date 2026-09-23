@@ -73,3 +73,4 @@ evals/assertions.ts
 evals/llm-judge.ts
 evals/runner.ts
 evals/tsconfig.json
+.env*
